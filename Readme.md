@@ -417,10 +417,12 @@ Berikut adalah ringkasan performa dari ketiga model yang telah di-tuning, dieval
 
 ![Gambar 7. Perbandingan akurasi model pada data train](datatrain.png)
 **Gambar 7. Perbandingan akurasi model pada data train**
+
 Interpretasi: Plot ini menunjukkan bahwa ketiga model (Decision Tree, LGBM, XGBoost) mencapai akurasi sempurna (100%) pada data training setelah tuning, mengindikasikan kemampuan mereka untuk mempelajari data latih secara maksimal.
 
 ![Gambar 8. Perbandingan akurasi model pada data test](datatest.png)
 **Gambar 8. Perbandingan akurasi model pada data test**
+
 Interpretasi: Visualisasi ini membandingkan akurasi pada data testing, menunjukkan performa yang sangat tinggi untuk ketiga model, dengan Decision Tree (99.82%) sedikit mengungguli LGBM (99.28%) dan XGBoost (99.10%). 
 
 ### Perbandingan Model dan Pemilihan Model Terbaik
@@ -463,27 +465,39 @@ Namun, **keseimbangan antara Recall tinggi dan kemampuan generalisasi yang lebih
 Visualisasi seperti *heatmap* dari Classification Report dan Confusion Matrix digunakan untuk mempermudah interpretasi perbandingan performa antar model dan memahami jenis-jenis kesalahan yang dibuat oleh masing-masing model secara lebih intuitif.
 
 ![Classification Report - Decision Tree](classificationreportdecisiontree.png)
+<br>
 **Gambar 9. Classification Report - Decision Tree**
+
 Interpretasi: Heatmap ini merangkum performa Decision Tree. Secara keseluruhan, model ini menunjukkan performa sangat tinggi dengan nilai precision, recall, dan f1-score mendekati 1.00 untuk kedua kelas, terutama recall 1.00 untuk kelas positif (1).
 
 ![Classification Report - LGBM](classificationreportLGBM.png)
+<br>
 **Gambar 10. Classification Report - LGBM**
+
 Interpretasi: LGBM juga menunjukkan performa yang kuat dengan skor tinggi di semua metrik. Namun, terdapat sedikit penurunan pada recall (0.98) untuk kelas positif (1) dibandingkan Decision Tree, meskipun precision dan f1-score tetap tinggi (0.99).
 
 ![Classification Report - XGBoost](classificationreportXGBoost.png)
+<br>
 **Gambar 11. Classification Report - XGBoost**
+
 Interpretasi: Seperti LGBM, XGBoost memiliki performa keseluruhan yang sangat baik dengan skor rata-rata 0.99. Recall untuk kelas positif (1) juga 0.98, menunjukkan performa yang sangat mirip dengan LGBM pada data testing ini.
 
 ![Confusion Matrix - Decision Tree](CMDecisiontree.png)
+<br>
 **Gambar 12. Confusion Matrix - Decision Tree**
+
 Interpretasi: Confusion matrix Decision Tree menunjukkan hasil klasifikasi yang hampir sempurna pada data testing. Hanya terdapat 1 kasus False Positive (non-diabetes diprediksi diabetes), dan yang terpenting, tidak ada kasus False Negative (0 kasus diabetes yang terlewatkan).
 
 ![Confusion Matrix - LGBM](CMLGBM.png)
+<br>
 **Gambar 13. Confusion Matrix - LGBM**
+
 Interpretasi: LGBM membuat sedikit lebih banyak kesalahan, dengan 1 False Positive dan 3 False Negative. Artinya, model ini gagal mengidentifikasi 3 kasus diabetes yang sebenarnya positif pada data testing ini.
 
 ![Confusion Matrix - XGBoost](CMXGBoost.png)
+<br>
 **Gambar 14. Confusion Matrix - XGBoost**
+
 Interpretasi: XGBoost memiliki pola kesalahan yang mirip dengan LGBM, menghasilkan 2 False Positive dan 3 False Negative. Ini juga berarti 3 kasus diabetes aktual tidak teridentifikasi oleh model pada set pengujian ini.
 
 ## Kesimpulan
