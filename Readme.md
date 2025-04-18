@@ -27,21 +27,34 @@ Tujuan dari project ini adalah untuk mengembangkan dan mengevaluasi sebuah model
 7.  [Fadhlullah, A. F., & Widiyaningtyas, T. (2024). Comparative analysis of decision tree and random forest algorithms for diabetes prediction. JTAM (Jurnal Teori dan Aplikasi Matematika), 8(4), 1121–1132.](http://journal.ummat.ac.id/index.php/jtam) 
 8.  [Ismafillah, D., Rohana, T., & Cahyana, Y. (2023). Analisis algoritma pohon keputusan untuk memprediksi penyakit diabetes menggunakan oversampling SMOTE. INFOTECH: Jurnal Informatika Teknologi, 4(1), 27–36.](https://www.researchgate.net/publication/371963606_Analisis_algoritma_pohon_keputusan_untuk_memprediksi_penyakit_diabetes_menggunakan_oversampling_smote)
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-1. **Beban penyakit dan komplikasi tinggi**  
-   - Diabetes melitus memengaruhi sekitar 422 juta orang di seluruh dunia, dengan peningkatan paling cepat di negara berpenghasilan rendah dan menengah.  
-   - Pada 2019 tercatat 463 juta kasus, dan diproyeksikan mencapai 700 juta pada 2045 jika tidak ada intervensi efektif.
+### **Solution Statement: Mengatasi Kesenjangan Deteksi Dini Diabetes Melalui Machine Learning**
 
-2. **Keterbatasan skrining konvensional**  
-   - Banyak kasus diabetes tipe 2 bersifat asimptomatik sehingga sering baru terdiagnosis saat komplikasi sudah muncul.  
-   - Meta‑analisis menunjukkan HbA₁c hanya memiliki sensitivitas rata‑rata 49 % dan spesifisitas 79 % untuk mendeteksi pra‑diabetes.  
-   - Rekomendasi skrining asimptomatik (misalnya setiap 3 tahun) jarang diterapkan konsisten, terutama di wilayah sumber daya terbatas.
+#### **1. Masalah Mendesak: Beban Penyakit Diabetes Global**
 
-3. **Potensi machine learning untuk deteksi dini**  
-   - Algoritma ML mampu mengolah dataset besar dan memodelkan interaksi kompleks faktor risiko (glukosa, tekanan darah, BMI, genetik, dll.).  
-   - Ulasan sistematis menunjukkan model machine learning umumnya mengungguli metode statistik tradisional dalam prediksi diabetes.
-  
-  Format Referensi: [Prediksi Penyakit Diabetes Menggunakan Algoritma Support Vector Machine (SVM)](https://pdfs.semanticscholar.org/28fd/32b134f3333078fe770e67cf972e8584b349.pdf) 
+*   **Skala Epidemi:** Diabetes memengaruhi ratusan juta orang di seluruh dunia (sekitar 422 juta menurut WHO, 463 juta pada 2019 menurut IDF), dengan beban terbesar dan peningkatan tercepat terjadi di negara berpenghasilan rendah dan menengah.
+*   **Proyeksi Mengkhawatirkan:** Tanpa intervensi yang efektif, jumlah kasus diproyeksikan melonjak hingga 700 juta pada tahun 2045.
+*   **Dampak:** Diabetes tidak hanya menyebabkan penderitaan individu tetapi juga menimbulkan beban ekonomi yang sangat besar akibat biaya pengobatan langsung dan hilangnya produktivitas, terutama akibat komplikasi jangka panjang (penyakit jantung, gagal ginjal, kebutaan, amputasi).
+*   **Mengapa Harus Diselesaikan:** Tingginya prevalensi, laju pertumbuhan, dan dampak sosio-ekonomi yang parah menjadikan diabetes prioritas kesehatan global yang memerlukan solusi deteksi dan pencegahan yang lebih baik untuk mengurangi beban penyakit dan biaya terkait.
+
+#### **2. Kesenjangan Kritis: Keterbatasan Skrining Konvensional**
+
+*   **Sifat Tersembunyi Diabetes Tipe 2:** Banyak kasus tidak menunjukkan gejala (asimptomatik) pada tahap awal, menyebabkan diagnosis seringkali terlambat ketika komplikasi sudah mulai berkembang.
+*   **Keterbatasan Tes Skrining:** Tes standar seperti HbA₁c memiliki **sensitivitas yang terbatas** (rata-rata hanya 49%) untuk mendeteksi pra-diabetes atau diabetes tahap awal, sehingga banyak individu berisiko terlewatkan.
+*   **Implementasi Skrining Tidak Konsisten:** Rekomendasi skrining berkala untuk individu tanpa gejala seringkali tidak diikuti secara konsisten, terutama di wilayah dengan sumber daya terbatas, memperparah masalah diagnosis yang terlambat.
+*   **Mengapa Menjadi Masalah:** Keterlambatan diagnosis berarti hilangnya kesempatan untuk melakukan intervensi gaya hidup atau pengobatan dini yang dapat secara signifikan mencegah atau menunda perkembangan komplikasi yang merusak dan mahal.
+
+#### **3. Solusi yang Diusulkan: Deteksi Dini Berbasis Machine Learning**
+
+*   **Bagaimana ML Menyelesaikan Masalah:** Algoritma Machine Learning (ML) memiliki kemampuan unik untuk:
+    *   **Menganalisis Pola Kompleks:** Mengolah dan memodelkan interaksi rumit antara berbagai faktor risiko (glukosa, tekanan darah, BMI, usia, riwayat keluarga/genetik, dll.) yang mungkin terlewatkan oleh analisis statistik sederhana atau tes tunggal.
+    *   **Identifikasi Risiko Lebih Awal:** Dengan mengenali pola prediktif dari kombinasi faktor risiko, model ML berpotensi mengidentifikasi individu berisiko tinggi **sebelum** gejala muncul atau **sebelum** tes tunggal seperti HbA₁c menunjukkan hasil abnormal secara signifikan.
+    *   **Potensi Peningkatan Akurasi:** Studi menunjukkan model ML seringkali dapat mencapai **sensitivitas dan spesifisitas yang lebih tinggi** dibandingkan metode skrining tradisional dalam memprediksi risiko diabetes.
+*   **Tujuan Solusi:** Mengembangkan model prediksi berbasis machine learning yang **akurat dan andal** untuk mengidentifikasi individu dengan risiko tinggi menderita diabetes **sedini mungkin**. Ini akan memungkinkan:
+    *   **Skrining yang Lebih Tertarget:** Memfokuskan sumber daya pada individu yang paling berisiko.
+    *   **Intervensi Pencegahan Tepat Waktu:** Mendorong perubahan gaya hidup atau pemantauan lebih ketat bagi mereka yang teridentifikasi berisiko tinggi.
+    *   **Pengurangan Komplikasi Jangka Panjang:** Pada akhirnya, berkontribusi pada penurunan beban penyakit dan biaya perawatan kesehatan terkait diabetes.
+
+Dengan memanfaatkan kekuatan machine learning, proyek ini bertujuan untuk menjembatani kesenjangan dalam deteksi dini diabetes, memberikan alat bantu yang potensial bagi tenaga medis dan sistem kesehatan untuk mengidentifikasi risiko secara lebih proaktif dan efektif.
 
 ## Business Understanding
 
@@ -155,6 +168,8 @@ Untuk mengidentifikasi dan menangani nilai pencilan (outlier) dalam data, salah 
     *   **Titik Outlier:** Titik-titik data individual yang digambarkan di luar jangkauan *whisker*. Titik-titik inilah yang diidentifikasi sebagai **outlier** berdasarkan kriteria IQR (1.5 kali IQR di bawah Q1 atau di atas Q3).
 
 ![Gambar 1. Contoh Visualisasi outliers dengan boxplot](image-1.png)
+*Gambar 1. Contoh Visualisasi outliers menggunakan boxplot*
+Interpretasi: Boxplot ini secara visual menampilkan distribusi data untuk fitur 'Weight'. Kotak menunjukkan rentang interkuartil (IQR), garis tengah adalah median, dan titik-titik di luar garis 'whisker' (sebelah kanan) mengindikasikan adanya nilai pencilan (outlier) pada data berat badan yang lebih tinggi dari sebagian besar data lainnya.
 
 Setelah mengidentifikasi potensi outlier menggunakan metode IQR dan visualisasi *boxplot* (serta mempertimbangkan standar kesehatan jika relevan), langkah selanjutnya adalah menentukan cara menanganinya. Outlier, sebagai nilai ekstrem atau tidak biasa, berpotensi memengaruhi keakuratan analisis statistik dan kinerja model prediktif yang akan dibangun.
 
@@ -195,16 +210,20 @@ Untuk menganalisis bagaimana nilai-nilai dalam setiap fitur numerik tersebar (di
 Analisis distribusi menggunakan histogram merupakan langkah penting dalam EDA. Ini memberikan pemahaman cepat mengenai karakteristik dasar setiap fitur numerik, membantu mengidentifikasi potensi masalah data (seperti kemiringan ekstrem), dan memberikan informasi yang berguna sebelum melanjutkan ke analisis yang lebih kompleks atau pembangunan model.
 
 ![Gambar 2. Visualisasi Target Fitur Berupa Kategorikal](image-3.png)
-*Interpretasi: Plot ini menunjukkan distribusi jumlah pasien dalam dataset berdasarkan status diabetes (Outcome). Terlihat jelas bahwa jumlah pasien yang tidak menderita diabetes (Outcome 0 = 1816) secara signifikan lebih banyak dibandingkan dengan pasien yang menderita diabetes (Outcome 1 = 952). Hal ini mengindikasikan adanya ketidakseimbangan kelas dalam dataset.*
+*Gambar 2. Visualisasi Target Fitur Berupa Kategorikal*
+Interpretasi: Plot ini menunjukkan distribusi jumlah pasien dalam dataset berdasarkan status diabetes (Outcome). Terlihat jelas bahwa jumlah pasien yang tidak menderita diabetes (Outcome 0 = 1816) secara signifikan lebih banyak dibandingkan dengan pasien yang menderita diabetes (Outcome 1 = 952). Hal ini mengindikasikan adanya ketidakseimbangan kelas dalam dataset.
 
 ![Gambar 3. Visualisasi EDA Fitur Numerik](image-6.png)
-*Interpretasi: Grid ini menampilkan distribusi (histogram) dan potensi outlier (boxplot) untuk setiap fitur numerik sebelum proses pembersihan outlier. Boxplot mengindikasikan adanya nilai-nilai pencilan (titik di luar whisker) pada beberapa fitur seperti `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, `Age`, dan `DiabetesPedigreeFunction`. Histogram menunjukkan variasi bentuk distribusi, banyak di antaranya cenderung miring ke kanan (right-skewed) seperti `Age`, `Insulin`, dan `Pregnancies`.*
+*Gambar 3. Visualisasi EDA Fitur Numerik (Sebelum Penghapusan Outlier Kustom)*
+Interpretasi: Grid ini menampilkan distribusi (histogram) dan potensi outlier (boxplot) untuk setiap fitur numerik sebelum proses pembersihan outlier. Boxplot mengindikasikan adanya nilai-nilai pencilan (titik di luar whisker) pada beberapa fitur seperti `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, `Age`, dan `DiabetesPedigreeFunction`. Histogram menunjukkan variasi bentuk distribusi, banyak di antaranya cenderung miring ke kanan (right-skewed) seperti `Age`, `Insulin`, dan `Pregnancies`.
 
-![Gambar 3. Visualisasi EDA Fitur Numerik setelah menghilangkan outlier](image-2.png)
-*Interpretasi: Grid ini menampilkan distribusi dan boxplot fitur numerik setelah dilakukan penghapusan outlier menggunakan batas kustom yang ditentukan (bukan murni metode IQR) untuk fitur `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, dan `Age`. Berdasarkan output kode, outlier signifikan pada `SkinThickness` (nilai > 100), `Insulin` (nilai > 850), dan `BMI` (nilai > 70) telah dihapus sesuai batas tersebut, menghasilkan boxplot yang lebih 'bersih' untuk fitur-fitur ini. Tidak ada outlier yang dihapus untuk `BloodPressure` dan `Age` berdasarkan batas kustom yang digunakan.*
+![Gambar 4. Visualisasi EDA Fitur Numerik setelah menghilangkan outlier](image-2.png)
+*Gambar 4. Visualisasi EDA Fitur Numerik (Setelah Penghapusan Outlier Kustom)*
+Interpretasi: Grid ini menampilkan distribusi dan boxplot fitur numerik setelah dilakukan penghapusan outlier menggunakan batas kustom yang ditentukan untuk fitur `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, dan `Age`. Berdasarkan output kode, outlier signifikan pada `SkinThickness` (nilai > 100), `Insulin` (nilai > 850), dan `BMI` (nilai > 70) telah dihapus sesuai batas tersebut, menghasilkan boxplot yang lebih 'bersih' untuk fitur-fitur ini. Tidak ada outlier yang dihapus untuk `BloodPressure` dan `Age` berdasarkan batas kustom yang digunakan.
 
-![Gambar 4. Viisualisasi Korelasi antar fitur](image-4.png)
-*Interpretasi: Pairplot ini memvisualisasikan hubungan antar pasangan fitur numerik (melalui scatter plot) dan distribusi masing-masing fitur (melalui plot kepadatan/KDE di diagonal). Dari scatter plot, dapat diamati adanya potensi hubungan positif antara beberapa fitur, misalnya antara `BMI` dan `SkinThickness`, serta `Glucose` dan `Insulin`. Namun, banyak juga pasangan fitur yang menunjukkan hubungan lemah atau non-linear. Plot diagonal mengkonfirmasi bentuk distribusi yang bervariasi seperti yang terlihat pada histogram sebelumnya.*
+![Gambar 5. Viisualisasi Korelasi antar fitur](image-4.png)
+*Gambar 5. Visualisasi Korelasi antar Fitur (Pairplot)*
+Interpretasi: Pairplot ini memvisualisasikan hubungan antar pasangan fitur numerik (melalui scatter plot) dan distribusi masing-masing fitur (melalui plot kepadatan/KDE di diagonal). Dari scatter plot, dapat diamati adanya potensi hubungan positif antara beberapa fitur, misalnya antara `BMI` dan `SkinThickness`, serta `Glucose` dan `Insulin`. Namun, banyak juga pasangan fitur yang menunjukkan hubungan lemah atau non-linear. Plot diagonal mengkonfirmasi bentuk distribusi yang bervariasi seperti yang terlihat pada histogram sebelumnya.
 
 ### Analisis Hubungan Antar Fitur Menggunakan Matriks Korelasi dan Heatmap
 
@@ -225,12 +244,14 @@ Agar pola hubungan ini lebih mudah diinterpretasikan secara visual, matriks kore
     *   Melihat fitur numerik mana yang memiliki korelasi paling signifikan (positif atau negatif) dengan **variabel target** (dalam kasus ini, `Outcome`, yang meskipun kategorikal (0/1), dapat dihitung korelasinya [Point-Biserial] dengan fitur numerik).
     *   Memberikan wawasan awal yang berguna untuk tahap selanjutnya seperti **pemilihan fitur** (*feature selection*) atau rekayasa fitur (*feature engineering*).
 
-![Gambar 5. Visualisasi Heatmap Matriks korelasi fitur](image-5.png)
-*Interpretasi: Heatmap ini menunjukkan koefisien korelasi linear antar semua fitur numerik, termasuk target (`Outcome`). Fokus pada kolom atau baris 'Outcome', kita dapat melihat bahwa:
+![Visualisasi Heatmap Matriks korelasi fitur](image-5.png)
+*Gambar 6. Visualisasi Heatmap Matriks korelasi fitur*
+
+Interpretasi: Heatmap ini menunjukkan koefisien korelasi linear antar semua fitur numerik, termasuk target (`Outcome`). Fokus pada kolom atau baris 'Outcome', kita dapat melihat bahwa:
     *   **Glucose** (0.49) memiliki korelasi positif **paling kuat** dengan `Outcome`, menunjukkan bahwa kadar glukosa yang lebih tinggi secara linear sangat berkaitan dengan kemungkinan diagnosis diabetes.
     *   Fitur lain seperti **Insulin** (0.35), **BMI** (0.30), **SkinThickness** (0.28), **Age** (0.24), dan **Pregnancies** (0.22) juga menunjukkan korelasi positif yang moderat hingga lemah dengan `Outcome`. Artinya, peningkatan nilai pada fitur-fitur ini cenderung berhubungan dengan peningkatan kemungkinan diabetes.
     *   **DiabetesPedigreeFunction** (0.16) dan **BloodPressure** (0.18) menunjukkan korelasi positif yang **paling lemah** dengan `Outcome` di antara semua fitur.
-Secara keseluruhan, hampir semua fitur menunjukkan korelasi positif dengan `Outcome`, namun `Glucose` adalah prediktor linear terkuat.*
+Secara keseluruhan, hampir semua fitur menunjukkan korelasi positif dengan `Outcome`, namun `Glucose` adalah prediktor linear terkuat.
 
 ## Data Preparation
 
@@ -264,62 +285,58 @@ Tahapan modeling adalah inti dari proyek machine learning ini, di mana algoritma
 
 ### Pendekatan Pemilihan Model Awal dengan `LazyPredict`
 
-*   **Proses:** Untuk mendapatkan gambaran awal performa berbagai algoritma klasifikasi pada dataset ini secara efisien, library `LazyPredict` (khususnya `LazyClassifier`) digunakan. `LazyPredict` melatih puluhan model klasifikasi dengan parameter default pada data training dan testing yang telah dipisah (`X_train`, `X_test`, `y_train`, `y_test`) sebelum penerapan SMOTE pada training set (sesuai urutan kode `clf.fit`).
-*   **Alasan Diperlukan:** Menggunakan `LazyPredict` memungkinkan identifikasi cepat model-model yang paling potensial dan berkinerja baik untuk dataset spesifik ini tanpa perlu menulis kode pelatihan manual untuk setiap model. Hasil dari `LazyPredict` (seperti terlihat pada output F1 Score, Accuracy, Balanced Accuracy) menunjukkan bahwa beberapa model, terutama yang berbasis *tree ensembles* (seperti Decision Tree, LGBM, XGBoost, Random Forest), menunjukkan performa awal yang sangat menjanjikan.
+*   **Proses:** Untuk mendapatkan gambaran awal performa berbagai algoritma klasifikasi pada dataset ini secara efisien, library `LazyPredict` (khususnya `LazyClassifier`) digunakan. `LazyPredict` melatih puluhan model klasifikasi dengan parameter default pada data training dan testing yang telah dipisah (`X_train`, `X_test`, `y_train`, `y_test`) sebelum penerapan SMOTE pada training set.
+*   **Alasan Diperlukan:** Menggunakan `LazyPredict` memungkinkan identifikasi cepat model-model yang paling potensial. Hasil dari `LazyPredict` (dilihat dari metrik seperti F1 Score, Accuracy, Balanced Accuracy) secara konsisten menempatkan **Decision Tree Classifier** di peringkat teratas, menunjukkan performa awal yang superior dibandingkan model lain pada dataset ini. Algoritma berbasis *tree ensembles* lainnya seperti LGBM dan XGBoost juga menunjukkan performa yang sangat kompetitif.
 
-### Pemilihan Model untuk Tuning Mendalam
+### Pemilihan Model Terbaik sebagai Solusi (Berdasarkan LazyPredict) dan Validasi Lanjutan
 
-*   **Proses:** Berdasarkan hasil performa tinggi yang ditunjukkan pada tahap `LazyPredict`, tiga algoritma dipilih untuk eksplorasi dan optimasi lebih lanjut menggunakan *hyperparameter tuning*:
-    1.  **Decision Tree Classifier**
-    2.  **LightGBM Classifier (LGBM)**
-    3.  **XGBoost Classifier (XGB)**
-*   **Alasan Pemilihan:** Ketiga model ini dipilih karena secara konsisten berada di peringkat teratas dalam evaluasi awal `LazyPredict`, menunjukkan kecocokan yang baik dengan karakteristik data dan potensi besar untuk mencapai akurasi tinggi setelah dioptimalkan. Fokus pada model-model terkuat ini memungkinkan penggunaan sumber daya komputasi yang lebih efisien untuk proses *tuning*.
+*   **Pemilihan Awal:** Berdasarkan performa awal yang dominan pada `LazyPredict`, **Decision Tree Classifier dipilih sebagai kandidat model terbaik utama** untuk solusi proyek ini. Keunggulannya dalam metrik evaluasi awal menjadikannya pilihan logis pertama.
+*   **Proses Validasi Lanjutan (Tuning):** Meskipun Decision Tree dipilih sebagai kandidat terkuat, praktik terbaik dalam machine learning menyarankan untuk tidak hanya mengandalkan parameter default dan perlu mewaspadai potensi masalah seperti overfitting (kelemahan umum Decision Tree). Oleh karena itu, untuk memastikan pilihan yang robust dan memitigasi risiko, diputuskan untuk melakukan *hyperparameter tuning* tidak hanya pada Decision Tree, tetapi juga pada dua model teratas lainnya yang juga menunjukkan performa kuat di LazyPredict:
+    1.  **Decision Tree Classifier** (Kandidat utama)
+    2.  **LightGBM Classifier (LGBM)** (Validasi & Perbandingan)
+    3.  **XGBoost Classifier (XGB)** (Validasi & Perbandingan)
+*   **Alasan Validasi Lanjutan:** Melakukan tuning pada ketiga model teratas ini bertujuan untuk:
+    *   Mengoptimalkan performa Decision Tree dan melihat apakah keunggulannya tetap bertahan setelah tuning.
+    *   Mengoptimalkan LGBM dan XGBoost untuk melihat potensi maksimal mereka sebagai alternatif.
+    *   Membandingkan model-model yang sudah dioptimalkan secara lebih adil, terutama dalam hal kemampuan generalisasi dan potensi overfitting.
+    *   Memastikan bahwa solusi akhir (yang awalnya ditunjuk Decision Tree) benar-benar merupakan pilihan terbaik setelah eksplorasi mendalam.
 
-### Penjelasan Algoritma Klasifikasi yang Dipilih
+### Penjelasan Algoritma Klasifikasi yang Dievaluasi
 
-Berikut adalah penjelasan singkat, kelebihan, dan kekurangan dari tiga algoritma yang dipilih:
+Berikut adalah penjelasan singkat, kelebihan, dan kekurangan dari tiga algoritma yang dievaluasi lebih lanjut:
 
-*   **Decision Tree Classifier:**
-    *   **Konsep:** Algoritma supervised learning yang membangun model prediksi dalam bentuk struktur pohon. Pohon ini membuat keputusan berdasarkan serangkaian aturan if-then-else pada nilai fitur untuk mengklasifikasikan data.
-    *   **Kelebihan:** Mudah diinterpretasikan dan divisualisasikan, tidak memerlukan normalisasi data secara ekstensif, dapat menangani data numerik dan kategorikal (meskipun dalam kasus ini semua fitur numerik).
-    *   **Kekurangan:** Cenderung *overfitting* (terlalu kompleks dan menghafal data training), terutama jika kedalaman pohon tidak dibatasi. Sensitif terhadap perubahan kecil pada data training, dapat menghasilkan pohon yang berbeda secara signifikan.
+#### Decision Tree Classifier
 
-*   **LightGBM Classifier (LGBM):**
-    *   **Konsep:** Implementasi *Gradient Boosting* yang sangat efisien. Menggunakan teknik *gradient-based one-side sampling* (GOSS) dan *exclusive feature bundling* (EFB) serta algoritma berbasis histogram untuk mempercepat pelatihan dan mengurangi penggunaan memori. Pohon tumbuh secara *leaf-wise* (memilih daun yang memberikan penurunan loss terbesar).
-    *   **Kelebihan:** Kecepatan training yang sangat tinggi dan penggunaan memori yang lebih rendah dibandingkan GBDT lainnya, seringkali menghasilkan akurasi yang sangat baik, cocok untuk dataset besar.
-    *   **Kekurangan:** Lebih rentan terhadap *overfitting* pada dataset yang lebih kecil dibandingkan XGBoost jika parameter tidak di-tune dengan hati-hati, parameter tuning bisa jadi lebih kompleks.
+*   **Konsep:** Algoritma supervised learning yang membangun model prediksi dalam bentuk struktur pohon. Pohon ini membuat keputusan berdasarkan serangkaian aturan if-then-else pada nilai fitur untuk mengklasifikasikan data.
+*   **Kelebihan:** Mudah diinterpretasikan dan divisualisasikan, tidak memerlukan normalisasi data secara ekstensif, dapat menangani data numerik dan kategorikal (meskipun dalam kasus ini semua fitur numerik).
+*   **Kekurangan:** Cenderung *overfitting* (terlalu kompleks dan menghafal data training), terutama jika kedalaman pohon tidak dibatasi. Sensitif terhadap perubahan kecil pada data training, dapat menghasilkan pohon yang berbeda secara signifikan.
 
-*   **XGBoost Classifier (XGB):**
-    *   **Konsep:** Implementasi *Gradient Boosting* lainnya yang sangat populer dan dioptimalkan. Menyertakan regularisasi L1 dan L2 bawaan untuk mencegah *overfitting*, dapat menangani nilai yang hilang secara internal (meskipun dalam proyek ini sudah diimputasi), dan mendukung pemrosesan paralel.
-    *   **Kelebihan:** Performa akurasi yang sangat tinggi, kontrol *overfitting* yang baik melalui regularisasi, fleksibilitas tinggi melalui banyak parameter tuning, sangat populer dan memiliki komunitas dukungan yang besar.
-    *   **Kekurangan:** Waktu training bisa lebih lama dibandingkan LGBM pada beberapa kasus, masih memerlukan tuning parameter yang cermat untuk performa optimal.
+#### LightGBM Classifier (LGBM)
+
+*   **Konsep:** Implementasi *Gradient Boosting* yang sangat efisien. Menggunakan teknik *gradient-based one-side sampling* (GOSS) dan *exclusive feature bundling* (EFB) serta algoritma berbasis histogram untuk mempercepat pelatihan dan mengurangi penggunaan memori. Pohon tumbuh secara *leaf-wise* (memilih daun yang memberikan penurunan loss terbesar).
+*   **Kelebihan:** Kecepatan training yang sangat tinggi dan penggunaan memori yang lebih rendah dibandingkan GBDT lainnya, seringkali menghasilkan akurasi yang sangat baik, cocok untuk dataset besar.
+*   **Kekurangan:** Lebih rentan terhadap *overfitting* pada dataset yang lebih kecil dibandingkan XGBoost jika parameter tidak di-tune dengan hati-hati, parameter tuning bisa jadi lebih kompleks.
+
+#### XGBoost Classifier (XGB)
+
+*   **Konsep:** Implementasi *Gradient Boosting* lainnya yang sangat populer dan dioptimalkan. Menyertakan regularisasi L1 dan L2 bawaan untuk mencegah *overfitting*, dapat menangani nilai yang hilang secara internal (meskipun dalam proyek ini sudah diimputasi), dan mendukung pemrosesan paralel.
+*   **Kelebihan:** Performa akurasi yang sangat tinggi, kontrol *overfitting* yang baik melalui regularisasi, fleksibilitas tinggi melalui banyak parameter tuning, sangat populer dan memiliki komunitas dukungan yang besar.
+*   **Kekurangan:** Waktu training bisa lebih lama dibandingkan LGBM pada beberapa kasus, masih memerlukan tuning parameter yang cermat untuk performa optimal.
 
 ### Proses Peningkatan Model (Hyperparameter Tuning)
 
-*   **Tujuan:** Parameter default dari sebuah algoritma belum tentu memberikan performa terbaik untuk dataset spesifik. *Hyperparameter tuning* bertujuan untuk mencari kombinasi parameter (yang tidak dipelajari langsung dari data, melainkan diatur sebelum training) yang menghasilkan model dengan performa terbaik pada data yang belum pernah dilihat.
+*   **Tujuan:** Mencari kombinasi hyperparameter terbaik untuk *masing-masing dari ketiga model* (Decision Tree, LGBM, XGBoost) guna memaksimalkan performa dan kemampuan generalisasi.
 *   **Proses:**
-    1.  **Metode:** `GridSearchCV` dari `sklearn.model_selection` digunakan. Metode ini secara sistematis mencoba *semua kombinasi* hyperparameter yang didefinisikan dalam sebuah *grid* (kamus `params`).
-    2.  **Validasi Silang (Cross-Validation):** Untuk setiap kombinasi parameter, `GridSearchCV` menggunakan validasi silang 5-fold (`cv=5`) pada data training (`X_train` yang sudah di-SMOTE, `y_train`). Data training dibagi menjadi 5 bagian, model dilatih pada 4 bagian dan divalidasi pada 1 bagian sisanya, diulang 5 kali sehingga setiap bagian pernah menjadi set validasi. Ini memberikan estimasi performa yang lebih robust daripada sekadar satu kali split train-validation.
-    3.  **Metrik:** Performa dievaluasi menggunakan metrik `'accuracy'`. Kombinasi parameter yang menghasilkan rata-rata akurasi validasi silang tertinggi dipilih sebagai yang terbaik.
-    4.  **Parameter Grid yang Diuji:**
-        *   **DecisionTree:**
-            *   `criterion`: ['gini', 'entropy']
-            *   `max_depth`: [None, 10, 20, 30]
-            *   `min_samples_split`: [2, 5, 10]
-            *   `min_samples_leaf`: [1, 2, 4]
-        *   **LGBM:**
-            *   `n_estimators`: [100, 200, 300]
-            *   `max_depth`: [3, 5, 7]
-            *   `learning_rate`: [0.01, 0.1, 0.2]
-            *   `num_leaves`: [20, 31, 40]
-        *   **XGBoost:**
-            *   `n_estimators`: [100, 200, 300]
-            *   `max_depth`: [3, 5, 7]
-            *   `learning_rate`: [0.01, 0.1, 0.2]
-            *   `subsample`: [0.6, 0.8, 1.0]
-    5.  **Hasil Tuning:** Setelah `GridSearchCV` selesai, parameter terbaik (`best_params_`) dan model terbaik (`best_estimator_`) untuk masing-masing algoritma (DecisionTree, LGBM, XGBoost) didapatkan.
+    1.  **Metode:** `GridSearchCV` dari `sklearn.model_selection` digunakan untuk mencoba semua kombinasi parameter dalam grid yang ditentukan.
+    2.  **Validasi Silang (Cross-Validation):** Validasi silang 5-fold (`cv=5`) digunakan pada data training (`X_train` yang sudah di-SMOTE, `y_train`) untuk estimasi performa yang robust.
+    3.  **Metrik:** `'accuracy'` digunakan sebagai metrik utama untuk pemilihan parameter terbaik dalam `GridSearchCV`.
+    4.  **Parameter Grid yang Diuji:** (Grid parameter sama seperti sebelumnya untuk DT, LGBM, XGBoost)
+        *   **DecisionTree:** `criterion`, `max_depth`, `min_samples_split`, `min_samples_leaf`.
+        *   **LGBM:** `n_estimators`, `max_depth`, `learning_rate`, `num_leaves`.
+        *   **XGBoost:** `n_estimators`, `max_depth`, `learning_rate`, `subsample`.
+    5.  **Hasil Tuning:** Parameter terbaik (`best_params_`) dan model terlatih terbaik (`best_estimator_`) didapatkan untuk *setiap* algoritma setelah proses `GridSearchCV`.
 
-Setelah tahap tuning ini, model terbaik dari setiap algoritma (dengan hyperparameter optimalnya) siap untuk dievaluasi secara final menggunakan data testing (`X_test`, `y_test`) yang telah disisihkan sebelumnya.
+Setelah tahap tuning ini, ketiga model yang telah dioptimalkan (Decision Tree, LGBM, dan XGBoost) siap untuk dievaluasi secara final menggunakan data testing (`X_test`, `y_test`). Tahap evaluasi selanjutnya akan membandingkan performa ketiganya secara mendalam (termasuk potensi overfitting) untuk mengkonfirmasi atau merevisi pemilihan Decision Tree sebagai solusi terbaik.
 
 ## Evaluation
 
@@ -392,11 +409,13 @@ Berikut adalah ringkasan performa dari ketiga model yang telah di-tuning, dieval
         *   F1-Score: 0.99
     *   **Confusion Matrix:** `[[375, 2], [3, 173]]` (TN=375, FP=2, FN=3, TP=173)
 
-![Gambar 6. Perbandingan akurasi model pada data train](datatrain.png)
-*Interpretasi: Plot ini menunjukkan bahwa ketiga model (Decision Tree, LGBM, XGBoost) mencapai akurasi sempurna (100%) pada data training setelah tuning, mengindikasikan kemampuan mereka untuk mempelajari data latih secara maksimal.*
+![Gambar 7. Perbandingan akurasi model pada data train](datatrain.png)
+*Gambar 7. Perbandingan akurasi model pada data train*
+Interpretasi: Plot ini menunjukkan bahwa ketiga model (Decision Tree, LGBM, XGBoost) mencapai akurasi sempurna (100%) pada data training setelah tuning, mengindikasikan kemampuan mereka untuk mempelajari data latih secara maksimal.
 
-![Gambar 7. Perbandingan akurasi model pada data test](datatest.png)
-*Interpretasi: Visualisasi ini membandingkan akurasi pada data testing, menunjukkan performa yang sangat tinggi untuk ketiga model, dengan Decision Tree (99.64%) sedikit mengungguli LGBM (99.28%) dan XGBoost (99.10%).*
+![Gambar 8. Perbandingan akurasi model pada data test](datatest.png)
+*Gambar 8. Perbandingan akurasi model pada data test*
+Interpretasi: Visualisasi ini membandingkan akurasi pada data testing, menunjukkan performa yang sangat tinggi untuk ketiga model, dengan Decision Tree (99.82%) sedikit mengungguli LGBM (99.28%) dan XGBoost (99.10%). 
 
 ### Perbandingan Model dan Pemilihan Model Terbaik
 
@@ -437,23 +456,29 @@ Namun, **keseimbangan antara Recall tinggi dan kemampuan generalisasi yang lebih
 
 Visualisasi seperti *heatmap* dari Classification Report dan Confusion Matrix digunakan untuk mempermudah interpretasi perbandingan performa antar model dan memahami jenis-jenis kesalahan yang dibuat oleh masing-masing model secara lebih intuitif.
 
-![Gambar 7. Classification Report - Decision Tree](classificationreportdecisiontree.png)
-*Interpretasi: Heatmap ini merangkum performa Decision Tree. Secara keseluruhan, model ini menunjukkan performa sangat tinggi dengan nilai precision, recall, dan f1-score mendekati 1.00 untuk kedua kelas, terutama recall 1.00 untuk kelas positif (1).*
+![Classification Report - Decision Tree](classificationreportdecisiontree.png)
+*Gambar 9. Classification Report - Decision Tree*
+Interpretasi: Heatmap ini merangkum performa Decision Tree. Secara keseluruhan, model ini menunjukkan performa sangat tinggi dengan nilai precision, recall, dan f1-score mendekati 1.00 untuk kedua kelas, terutama recall 1.00 untuk kelas positif (1).
 
-![Gambar 8. Classification Report - LGBM](classificationreportLGBM.png)
-*Interpretasi: LGBM juga menunjukkan performa yang kuat dengan skor tinggi di semua metrik. Namun, terdapat sedikit penurunan pada recall (0.98) untuk kelas positif (1) dibandingkan Decision Tree, meskipun precision dan f1-score tetap tinggi (0.99).*
+![Classification Report - LGBM](classificationreportLGBM.png)
+*Gambar 10. Classification Report - LGBM*
+Interpretasi: LGBM juga menunjukkan performa yang kuat dengan skor tinggi di semua metrik. Namun, terdapat sedikit penurunan pada recall (0.98) untuk kelas positif (1) dibandingkan Decision Tree, meskipun precision dan f1-score tetap tinggi (0.99).
 
-![Gambar 9. Classification Report - XGBoost](classificationreportXGBoost.png)
-*Interpretasi: Seperti LGBM, XGBoost memiliki performa keseluruhan yang sangat baik dengan skor rata-rata 0.99. Recall untuk kelas positif (1) juga 0.98, menunjukkan performa yang sangat mirip dengan LGBM pada data testing ini.*
+![Classification Report - XGBoost](classificationreportXGBoost.png)
+*Gambar 11. Classification Report - XGBoost*
+Interpretasi: Seperti LGBM, XGBoost memiliki performa keseluruhan yang sangat baik dengan skor rata-rata 0.99. Recall untuk kelas positif (1) juga 0.98, menunjukkan performa yang sangat mirip dengan LGBM pada data testing ini.
 
-![Gambar 10. Confusion Matrix - Decision Tree](CMDecisiontree.png)
-*Interpretasi: Confusion matrix Decision Tree menunjukkan hasil klasifikasi yang hampir sempurna pada data testing. Hanya terdapat 1 kasus False Positive (non-diabetes diprediksi diabetes), dan yang terpenting, tidak ada kasus False Negative (0 kasus diabetes yang terlewatkan).*
+![Confusion Matrix - Decision Tree](CMDecisiontree.png)
+*Gambar 12. Confusion Matrix - Decision Tree*
+Interpretasi: Confusion matrix Decision Tree menunjukkan hasil klasifikasi yang hampir sempurna pada data testing. Hanya terdapat 1 kasus False Positive (non-diabetes diprediksi diabetes), dan yang terpenting, tidak ada kasus False Negative (0 kasus diabetes yang terlewatkan).
 
-![Gambar 11. Confusion Matrix - LGBM](CMLGBM.png)
-*Interpretasi: LGBM membuat sedikit lebih banyak kesalahan, dengan 1 False Positive dan 3 False Negative. Artinya, model ini gagal mengidentifikasi 3 kasus diabetes yang sebenarnya positif pada data testing ini.*
+![Confusion Matrix - LGBM](CMLGBM.png)
+*Gambar 13. Confusion Matrix - LGBM*
+Interpretasi: LGBM membuat sedikit lebih banyak kesalahan, dengan 1 False Positive dan 3 False Negative. Artinya, model ini gagal mengidentifikasi 3 kasus diabetes yang sebenarnya positif pada data testing ini.
 
-![Gambar 12. Confusion Matrix - XGBoost](CMXGBoost.png)
-*Interpretasi: XGBoost memiliki pola kesalahan yang mirip dengan LGBM, menghasilkan 2 False Positive dan 3 False Negative. Ini juga berarti 3 kasus diabetes aktual tidak teridentifikasi oleh model pada set pengujian ini.*
+![Confusion Matrix - XGBoost](CMXGBoost.png)
+*Gambar 14. Confusion Matrix - XGBoost*
+Interpretasi: XGBoost memiliki pola kesalahan yang mirip dengan LGBM, menghasilkan 2 False Positive dan 3 False Negative. Ini juga berarti 3 kasus diabetes aktual tidak teridentifikasi oleh model pada set pengujian ini.
 
 ## Kesimpulan
 
@@ -485,7 +510,6 @@ Namun, penting untuk dicatat bahwa analisis pada tahap evaluasi juga mengidentif
 Secara keseluruhan, proyek ini menunjukkan potensi besar penggunaan machine learning untuk prediksi diabetes. Model Decision Tree memberikan hasil Recall yang sempurna pada data test, namun tantangan overfitting perlu diatasi untuk memastikan keandalan model dalam aplikasi praktis.
 
 ## Referensi
----
 
 *   Mayo Clinic Staff, "Type 1 diabetes - Symptoms and causes," *Mayo Clinic Website* \[online], 2021. [Available at: https://www.mayoclinic.org/diseases-conditions/type-1-diabetes/symptoms-causes/syc-20353011](https://www.mayoclinic.org/diseases-conditions/type-1-diabetes/symptoms-causes/syc-20353011)
 *   Atkinson MA, Eisenbarth GS, and Michels AW, "Type 1 diabetes," *The Lancet*, vol. 383, no. 9911, pp. 69–82 \[online], 2014. [Available at: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4380133/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4380133/)
