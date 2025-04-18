@@ -168,7 +168,9 @@ Untuk mengidentifikasi dan menangani nilai pencilan (outlier) dalam data, salah 
     *   **Titik Outlier:** Titik-titik data individual yang digambarkan di luar jangkauan *whisker*. Titik-titik inilah yang diidentifikasi sebagai **outlier** berdasarkan kriteria IQR (1.5 kali IQR di bawah Q1 atau di atas Q3).
 
 ![Gambar 1. Contoh Visualisasi outliers dengan boxplot](image-1.png)
+<br>
 *Gambar 1. Contoh Visualisasi outliers menggunakan boxplot*
+
 Interpretasi: Boxplot ini secara visual menampilkan distribusi data untuk fitur 'Weight'. Kotak menunjukkan rentang interkuartil (IQR), garis tengah adalah median, dan titik-titik di luar garis 'whisker' (sebelah kanan) mengindikasikan adanya nilai pencilan (outlier) pada data berat badan yang lebih tinggi dari sebagian besar data lainnya.
 
 Setelah mengidentifikasi potensi outlier menggunakan metode IQR dan visualisasi *boxplot* (serta mempertimbangkan standar kesehatan jika relevan), langkah selanjutnya adalah menentukan cara menanganinya. Outlier, sebagai nilai ekstrem atau tidak biasa, berpotensi memengaruhi keakuratan analisis statistik dan kinerja model prediktif yang akan dibangun.
@@ -210,19 +212,23 @@ Untuk menganalisis bagaimana nilai-nilai dalam setiap fitur numerik tersebar (di
 Analisis distribusi menggunakan histogram merupakan langkah penting dalam EDA. Ini memberikan pemahaman cepat mengenai karakteristik dasar setiap fitur numerik, membantu mengidentifikasi potensi masalah data (seperti kemiringan ekstrem), dan memberikan informasi yang berguna sebelum melanjutkan ke analisis yang lebih kompleks atau pembangunan model.
 
 ![Gambar 2. Visualisasi Target Fitur Berupa Kategorikal](image-3.png)
-*Gambar 2. Visualisasi Target Fitur Berupa Kategorikal*
+**Gambar 2. Visualisasi Target Fitur Berupa Kategorikal**
+
 Interpretasi: Plot ini menunjukkan distribusi jumlah pasien dalam dataset berdasarkan status diabetes (Outcome). Terlihat jelas bahwa jumlah pasien yang tidak menderita diabetes (Outcome 0 = 1816) secara signifikan lebih banyak dibandingkan dengan pasien yang menderita diabetes (Outcome 1 = 952). Hal ini mengindikasikan adanya ketidakseimbangan kelas dalam dataset.
 
 ![Gambar 3. Visualisasi EDA Fitur Numerik](image-6.png)
-*Gambar 3. Visualisasi EDA Fitur Numerik (Sebelum Penghapusan Outlier Kustom)*
+**Gambar 3. Visualisasi EDA Fitur Numerik (Sebelum Penghapusan Outlier Kustom)**
+
 Interpretasi: Grid ini menampilkan distribusi (histogram) dan potensi outlier (boxplot) untuk setiap fitur numerik sebelum proses pembersihan outlier. Boxplot mengindikasikan adanya nilai-nilai pencilan (titik di luar whisker) pada beberapa fitur seperti `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, `Age`, dan `DiabetesPedigreeFunction`. Histogram menunjukkan variasi bentuk distribusi, banyak di antaranya cenderung miring ke kanan (right-skewed) seperti `Age`, `Insulin`, dan `Pregnancies`.
 
 ![Gambar 4. Visualisasi EDA Fitur Numerik setelah menghilangkan outlier](image-2.png)
-*Gambar 4. Visualisasi EDA Fitur Numerik (Setelah Penghapusan Outlier Kustom)*
+**Gambar 4. Visualisasi EDA Fitur Numerik (Setelah Penghapusan Outlier Kustom)**
+
 Interpretasi: Grid ini menampilkan distribusi dan boxplot fitur numerik setelah dilakukan penghapusan outlier menggunakan batas kustom yang ditentukan untuk fitur `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, dan `Age`. Berdasarkan output kode, outlier signifikan pada `SkinThickness` (nilai > 100), `Insulin` (nilai > 850), dan `BMI` (nilai > 70) telah dihapus sesuai batas tersebut, menghasilkan boxplot yang lebih 'bersih' untuk fitur-fitur ini. Tidak ada outlier yang dihapus untuk `BloodPressure` dan `Age` berdasarkan batas kustom yang digunakan.
 
 ![Gambar 5. Viisualisasi Korelasi antar fitur](image-4.png)
-*Gambar 5. Visualisasi Korelasi antar Fitur (Pairplot)*
+**Gambar 5. Visualisasi Korelasi antar Fitur (Pairplot)**
+
 Interpretasi: Pairplot ini memvisualisasikan hubungan antar pasangan fitur numerik (melalui scatter plot) dan distribusi masing-masing fitur (melalui plot kepadatan/KDE di diagonal). Dari scatter plot, dapat diamati adanya potensi hubungan positif antara beberapa fitur, misalnya antara `BMI` dan `SkinThickness`, serta `Glucose` dan `Insulin`. Namun, banyak juga pasangan fitur yang menunjukkan hubungan lemah atau non-linear. Plot diagonal mengkonfirmasi bentuk distribusi yang bervariasi seperti yang terlihat pada histogram sebelumnya.
 
 ### Analisis Hubungan Antar Fitur Menggunakan Matriks Korelasi dan Heatmap
@@ -245,7 +251,7 @@ Agar pola hubungan ini lebih mudah diinterpretasikan secara visual, matriks kore
     *   Memberikan wawasan awal yang berguna untuk tahap selanjutnya seperti **pemilihan fitur** (*feature selection*) atau rekayasa fitur (*feature engineering*).
 
 ![Visualisasi Heatmap Matriks korelasi fitur](image-5.png)
-*Gambar 6. Visualisasi Heatmap Matriks korelasi fitur*
+**Gambar 6. Visualisasi Heatmap Matriks korelasi fitur**
 
 Interpretasi: Heatmap ini menunjukkan koefisien korelasi linear antar semua fitur numerik, termasuk target (`Outcome`). Fokus pada kolom atau baris 'Outcome', kita dapat melihat bahwa:
     *   **Glucose** (0.49) memiliki korelasi positif **paling kuat** dengan `Outcome`, menunjukkan bahwa kadar glukosa yang lebih tinggi secara linear sangat berkaitan dengan kemungkinan diagnosis diabetes.
@@ -410,11 +416,11 @@ Berikut adalah ringkasan performa dari ketiga model yang telah di-tuning, dieval
     *   **Confusion Matrix:** `[[375, 2], [3, 173]]` (TN=375, FP=2, FN=3, TP=173)
 
 ![Gambar 7. Perbandingan akurasi model pada data train](datatrain.png)
-*Gambar 7. Perbandingan akurasi model pada data train*
+**Gambar 7. Perbandingan akurasi model pada data train**
 Interpretasi: Plot ini menunjukkan bahwa ketiga model (Decision Tree, LGBM, XGBoost) mencapai akurasi sempurna (100%) pada data training setelah tuning, mengindikasikan kemampuan mereka untuk mempelajari data latih secara maksimal.
 
 ![Gambar 8. Perbandingan akurasi model pada data test](datatest.png)
-*Gambar 8. Perbandingan akurasi model pada data test*
+**Gambar 8. Perbandingan akurasi model pada data test**
 Interpretasi: Visualisasi ini membandingkan akurasi pada data testing, menunjukkan performa yang sangat tinggi untuk ketiga model, dengan Decision Tree (99.82%) sedikit mengungguli LGBM (99.28%) dan XGBoost (99.10%). 
 
 ### Perbandingan Model dan Pemilihan Model Terbaik
@@ -457,27 +463,27 @@ Namun, **keseimbangan antara Recall tinggi dan kemampuan generalisasi yang lebih
 Visualisasi seperti *heatmap* dari Classification Report dan Confusion Matrix digunakan untuk mempermudah interpretasi perbandingan performa antar model dan memahami jenis-jenis kesalahan yang dibuat oleh masing-masing model secara lebih intuitif.
 
 ![Classification Report - Decision Tree](classificationreportdecisiontree.png)
-*Gambar 9. Classification Report - Decision Tree*
+**Gambar 9. Classification Report - Decision Tree**
 Interpretasi: Heatmap ini merangkum performa Decision Tree. Secara keseluruhan, model ini menunjukkan performa sangat tinggi dengan nilai precision, recall, dan f1-score mendekati 1.00 untuk kedua kelas, terutama recall 1.00 untuk kelas positif (1).
 
 ![Classification Report - LGBM](classificationreportLGBM.png)
-*Gambar 10. Classification Report - LGBM*
+**Gambar 10. Classification Report - LGBM**
 Interpretasi: LGBM juga menunjukkan performa yang kuat dengan skor tinggi di semua metrik. Namun, terdapat sedikit penurunan pada recall (0.98) untuk kelas positif (1) dibandingkan Decision Tree, meskipun precision dan f1-score tetap tinggi (0.99).
 
 ![Classification Report - XGBoost](classificationreportXGBoost.png)
-*Gambar 11. Classification Report - XGBoost*
+**Gambar 11. Classification Report - XGBoost**
 Interpretasi: Seperti LGBM, XGBoost memiliki performa keseluruhan yang sangat baik dengan skor rata-rata 0.99. Recall untuk kelas positif (1) juga 0.98, menunjukkan performa yang sangat mirip dengan LGBM pada data testing ini.
 
 ![Confusion Matrix - Decision Tree](CMDecisiontree.png)
-*Gambar 12. Confusion Matrix - Decision Tree*
+**Gambar 12. Confusion Matrix - Decision Tree**
 Interpretasi: Confusion matrix Decision Tree menunjukkan hasil klasifikasi yang hampir sempurna pada data testing. Hanya terdapat 1 kasus False Positive (non-diabetes diprediksi diabetes), dan yang terpenting, tidak ada kasus False Negative (0 kasus diabetes yang terlewatkan).
 
 ![Confusion Matrix - LGBM](CMLGBM.png)
-*Gambar 13. Confusion Matrix - LGBM*
+**Gambar 13. Confusion Matrix - LGBM**
 Interpretasi: LGBM membuat sedikit lebih banyak kesalahan, dengan 1 False Positive dan 3 False Negative. Artinya, model ini gagal mengidentifikasi 3 kasus diabetes yang sebenarnya positif pada data testing ini.
 
 ![Confusion Matrix - XGBoost](CMXGBoost.png)
-*Gambar 14. Confusion Matrix - XGBoost*
+**Gambar 14. Confusion Matrix - XGBoost**
 Interpretasi: XGBoost memiliki pola kesalahan yang mirip dengan LGBM, menghasilkan 2 False Positive dan 3 False Negative. Ini juga berarti 3 kasus diabetes aktual tidak teridentifikasi oleh model pada set pengujian ini.
 
 ## Kesimpulan
