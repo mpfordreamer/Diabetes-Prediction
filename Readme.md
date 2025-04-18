@@ -27,7 +27,14 @@ Tujuan dari project ini adalah untuk mengembangkan dan mengevaluasi sebuah model
 7.  [Fadhlullah, A. F., & Widiyaningtyas, T. (2024). Comparative analysis of decision tree and random forest algorithms for diabetes prediction. JTAM (Jurnal Teori dan Aplikasi Matematika), 8(4), 1121–1132.](http://journal.ummat.ac.id/index.php/jtam) 
 8.  [Ismafillah, D., Rohana, T., & Cahyana, Y. (2023). Analisis algoritma pohon keputusan untuk memprediksi penyakit diabetes menggunakan oversampling SMOTE. INFOTECH: Jurnal Informatika Teknologi, 4(1), 27–36.](https://www.researchgate.net/publication/371963606_Analisis_algoritma_pohon_keputusan_untuk_memprediksi_penyakit_diabetes_menggunakan_oversampling_smote)
 
+<<<<<<< HEAD
 ### **Solution Statement: Mengatasi Kesenjangan Deteksi Dini Diabetes Melalui Machine Learning**
+=======
+**Solution Statement**:
+1. **Beban penyakit dan komplikasi tinggi**  
+   - Diabetes melitus memengaruhi sekitar 422 juta orang di seluruh dunia, dengan peningkatan paling cepat di negara berpenghasilan rendah dan menengah.  
+   - Pada 2019 tercatat 463 juta kasus, dan diproyeksikan mencapai 700 juta pada 2045 jika tidak ada intervensi efektif.
+>>>>>>> d0988c7137938e4d9f0e867b13c8fab6abb8a8cd
 
 #### **1. Masalah Mendesak: Beban Penyakit Diabetes Global**
 
