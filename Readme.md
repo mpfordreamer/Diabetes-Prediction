@@ -1,106 +1,91 @@
-# Laporan Proyek Machine Learning - I Dewa Gede Mahesta Parawangsa
+# Diabetes Prediction Risk
+![Banner (1920 x 1080 piksel)](https://github.com/user-attachments/assets/521ee6af-2e44-40ec-9e05-891b5456f46e)
 
-## Domain Proyek
+## Project Domain
 
-### Latar Belakang
+### Background
 
-Kesehatan masyarakat global tengah menghadapi tantangan serius akibat meningkatnya prevalensi penyakit tidak Diabetes melitus (DM) merupakan salah satu penyakit tidak menular yang menjadi tantangan serius bagi kesehatan masyarakat global [1]. Menurut Organisasi Kesehatan Dunia (WHO), sekitar 422 juta orang di seluruh dunia hidup dengan kondisi ini, dengan mayoritas kasus terkonsentrasi di negara berpenghasilan rendah dan menengah. Angka prevalensi ini diperkirakan akan terus meningkat di masa mendatang. Beban penyakit ini tidak hanya dirasakan oleh individu penderita, yang berisiko mengalami komplikasi berat seperti penyakit jantung, stroke, dan gagal ginjal, tetapi juga oleh sistem kesehatan secara keseluruhan [1]. Skala masalah ini semakin nyata jika melihat data Federasi Diabetes Internasional (IDF), yang mencatat sekitar 463 juta orang hidup dengan diabetes pada tahun 2019 dan memproyeksikan angka ini melonjak hingga 700 juta jiwa pada tahun 2045 [2]. Mengingat tren yang mengkhawatirkan ini, kemampuan untuk mendeteksi risiko diabetes sedini mungkin menjadi kunci utama, memungkinkan penerapan intervensi preventif atau terapeutik secara tepat waktu untuk menekan laju penyakit dan komplikasinya [3].
+Global public health is facing a serious challenge due to the increasing prevalence of non-communicable diseases. Diabetes mellitus (DM) is one such disease that poses a significant challenge to global public health [1]. According to the World Health Organization (WHO), about 422 million people worldwide live with this condition, with the majority of cases concentrated in low- and middle-income countries. This prevalence rate is expected to continue to rise in the future. The burden of this disease is felt not only by the individuals suffering from it, who are at risk of severe complications like heart disease, stroke, and kidney failure, but also by the healthcare system as a whole [1]. The scale of this problem becomes even more apparent when looking at data from the International Diabetes Federation (IDF), which recorded about 463 million people living with diabetes in 2019 and projects this number to jump to 700 million by 2045 [2]. Given this alarming trend, the ability to detect diabetes risk as early as possible becomes crucial, allowing for timely preventive or therapeutic interventions to curb the disease's progression and its complications [3].
 
-Permasalahan mendasar yang mendorong penelitian ini adalah keterbatasan dalam memprediksi risiko diabetes secara akurat dan efisien pada tahap awal. Seringkali, diabetes berkembang tanpa gejala yang jelas (asimptomatik) pada fase awalnya, menyebabkan diagnosis baru ditegakkan setelah penyakit berkembang cukup lanjut atau bahkan ketika komplikasi sudah mulai muncul [4]. Keterlambatan diagnosis ini sebagian disebabkan oleh kurangnya akses terhadap alat skrining atau prediksi risiko yang efektif dan mudah dijangkau. Selain itu, pendekatan diagnostik konvensional yang mengandalkan pemeriksaan klinis dan laboratorium secara manual dapat memakan waktu dan biaya yang tidak sedikit, menjadi penghalang bagi deteksi dini berskala luas [4].
+The fundamental problem driving this research is the limitation in accurately and efficiently predicting diabetes risk at an early stage. Often, diabetes develops without clear symptoms (asymptomatically) in its initial phase, leading to a diagnosis only after the disease has progressed significantly or even when complications have begun to appear [4]. This delay in diagnosis is partly due to a lack of access to effective and accessible screening or risk prediction tools. Furthermore, conventional diagnostic approaches that rely on manual clinical and laboratory examinations can be time-consuming and costly, becoming a barrier to large-scale early detection [4].
 
-Seiring dengan ledakan data kesehatan digital dalam beberapa tahun terakhir, muncul peluang besar untuk mengatasi tantangan ini [5]. Namun, potensi data tersebut belum dimanfaatkan secara optimal untuk prediksi risiko diabetes. Penyebab utamanya adalah kompleksitas faktor risiko yang terlibat dan bagaimana mereka berinteraksi. Berbagai faktor seperti **riwayat kehamilan**, **kadar glukosa dan insulin dalam tubuh**, **tekanan darah**, **pengukuran komposisi tubuh seperti ketebalan lipatan kulit dan indeks massa tubuh**, **faktor keturunan atau predisposisi genetik**, serta **usia**—semuanya berkontribusi dan saling mempengaruhi dalam menentukan status atau kerentanan seseorang terhadap diabetes [6]. Menganalisis hubungan multifaktorial yang rumit dari data semacam ini seringkali melampaui kemampuan analisis konvensional. Di sinilah letak urgensi penyelesaian masalah: kegagalan mendeteksi risiko secara dini berdasarkan kombinasi faktor-faktor ini akan terus berkontribusi pada peningkatan beban penyakit diabetes dan komplikasinya, baik bagi individu maupun sistem kesehatan secara keseluruhan.
+With the explosion of digital health data in recent years, a great opportunity has emerged to address this challenge [5]. However, the potential of this data has not been optimally utilized for diabetes risk prediction. The main reason is the complexity of the risk factors involved and how they interact. Various factors such as **pregnancy history**, **glucose and insulin levels in the body**, **blood pressure**, **body composition measurements like skin fold thickness and body mass index**, **hereditary factors or genetic predisposition**, and **age**—all contribute and influence a person's susceptibility to diabetes [6]. Analyzing the complex multifactorial relationships from such data often exceeds the capabilities of conventional analysis. This is where the urgency of the problem lies: the failure to detect risk early based on the combination of these factors will continue to contribute to the increasing burden of diabetes and its complications, both for individuals and the healthcare system as a whole.
 
-Oleh karena itu, penerapan teknologi berbasis data, khususnya pendekatan **pembelajaran mesin (machine learning)**, menjadi sangat relevan dan mendesak. Metode komputasi ini dirancang untuk mengolah dataset bervolume besar dan mengidentifikasi pola-pola kompleks yang mungkin terlewat oleh analisis manual [7]. Dengan melatih model prediktif menggunakan data riwayat kesehatan pasien, kita dapat mengembangkan alat bantu skrining yang mampu mengestimasi probabilitas risiko diabetes pada individu berdasarkan profil faktor risikonya. Pendekatan ini tidak hanya berpotensi meningkatkan akurasi dan kecepatan deteksi dini, tetapi juga dapat memberikan wawasan baru mengenai faktor-faktor mana yang paling signifikan dalam memprediksi risiko diabetes pada populasi tertentu [8]. Model prediktif yang andal dan mudah diinterpretasikan diharapkan dapat menjadi alat bantu berharga bagi tenaga medis dalam pengambilan keputusan klinis, memungkinkan intervensi yang lebih tepat sasaran dan personal.
+Therefore, the application of data-driven technology, particularly a **machine learning** approach, becomes highly relevant and urgent. These computational methods are designed to process large-volume datasets and identify complex patterns that might be missed by manual analysis [7]. By training a predictive model using patient health history data, we can develop a screening tool capable of estimating the probability of diabetes risk in an individual based on their risk factor profile. This approach not only has the potential to increase the accuracy and speed of early detection but can also provide new insights into which factors are most significant in predicting diabetes risk in a specific population [8]. A reliable and easily interpretable predictive model is expected to become a valuable tool for medical professionals in clinical decision-making, enabling more targeted and personalized interventions.
 
-Tujuan dari project ini adalah untuk mengembangkan dan mengevaluasi sebuah model prediktif risiko diabetes menggunakan algoritma machine learning. Kinerja model akan dinilai berdasarkan metrik standar seperti akurasi, sensitivitas, dan spesifisitas. Harapannya, model yang dihasilkan dapat memberikan kontribusi praktis dalam upaya deteksi dini diabetes, mendukung sistem kesehatan dalam mengidentifikasi individu berisiko tinggi, serta memperkaya pemahaman mengenai faktor-faktor kunci pemicu diabetes.
+The goal of this project is to develop and evaluate a predictive model for diabetes risk using machine learning algorithms. The model's performance will be assessed based on standard metrics such as accuracy, sensitivity, and specificity. It is hoped that the resulting model can make a practical contribution to early diabetes detection efforts, support healthcare systems in identifying high-risk individuals, and enrich the understanding of the key triggers of diabetes.
 
 ---
 
-**Referensi:**
+### **Solution Statement: Bridging the Gap in Early Diabetes Detection Through Machine Learning**
 
-1.  [World Health Organization, "Diabetes," 2023 [Online].](https://www.who.int/news-room/fact-sheets/detail/diabetes ) 
-2.  [IDF Diabetes Atlas 9th Edition Statistics](https://www.diabetesatlas.org/)
-3.  [American Diabetes Association. (2020). Diagnosis and classification of diabetes mellitus. Diabetes Care, 43(Suppl. 1), S14–S31.](https://doi.org/10.2337/dc20-S002)
-4.  [F. Johnson and L. White, "Application of Data Mining in Health Sector: A Review of Literature", International Journal of Advanced Computer Science and Applications, vol. 11, no. 5, pp. 175-183, 2020.](https://thesai.org/Publications/IJACSA)
-5.  [J. Han, M. Kamber, and J. Pei, Data Mining: Concepts and Techniques, 3rd ed. Waltham: Morgan Kaufmann, 2018. ](https://www.sciencedirect.com/book/9780123814791/data-mining-concepts-and-techniques) 
-6.  [Sisodia, D., & Sisodia, D. S. (2018). Prediction of diabetes using classification algorithms. Procedia Computer Science, 132, 1578–1585.](https://www.sciencedirect.com/science/article/pii/S1877050918308548?via%3Dihub) 
-7.  [Fadhlullah, A. F., & Widiyaningtyas, T. (2024). Comparative analysis of decision tree and random forest algorithms for diabetes prediction. JTAM (Jurnal Teori dan Aplikasi Matematika), 8(4), 1121–1132.](http://journal.ummat.ac.id/index.php/jtam) 
-8.  [Ismafillah, D., Rohana, T., & Cahyana, Y. (2023). Analisis algoritma pohon keputusan untuk memprediksi penyakit diabetes menggunakan oversampling SMOTE. INFOTECH: Jurnal Informatika Teknologi, 4(1), 27–36.](https://www.researchgate.net/publication/371963606_Analisis_algoritma_pohon_keputusan_untuk_memprediksi_penyakit_diabetes_menggunakan_oversampling_smote)
+#### **1. The Urgent Problem: The Global Burden of Diabetes**
 
-### **Solution Statement: Mengatasi Kesenjangan Deteksi Dini Diabetes Melalui Machine Learning**
+*   **Scale of the Epidemic:** Diabetes affects hundreds of millions of people worldwide (about 422 million according to WHO, 463 million in 2019 according to IDF), with the greatest burden and fastest increase occurring in low- and middle-income countries.
+*   **Worrying Projections:** Without effective intervention, the number of cases is projected to surge to 700 million by 2045.
+*   **Impact:** Diabetes not only causes individual suffering but also imposes an enormous economic burden due to direct treatment costs and lost productivity, especially from long-term complications (heart disease, kidney failure, blindness, amputation).
+*   **Why It Must Be Solved:** The high prevalence, growth rate, and severe socio-economic impact make diabetes a global health priority that requires better detection and prevention solutions to reduce the disease burden and associated costs.
 
-#### **1. Masalah Mendesak: Beban Penyakit Diabetes Global**
+#### **2. The Critical Gap: Limitations of Conventional Screening**
 
-*   **Skala Epidemi:** Diabetes memengaruhi ratusan juta orang di seluruh dunia (sekitar 422 juta menurut WHO, 463 juta pada 2019 menurut IDF), dengan beban terbesar dan peningkatan tercepat terjadi di negara berpenghasilan rendah dan menengah.
-*   **Proyeksi Mengkhawatirkan:** Tanpa intervensi yang efektif, jumlah kasus diproyeksikan melonjak hingga 700 juta pada tahun 2045.
-*   **Dampak:** Diabetes tidak hanya menyebabkan penderitaan individu tetapi juga menimbulkan beban ekonomi yang sangat besar akibat biaya pengobatan langsung dan hilangnya produktivitas, terutama akibat komplikasi jangka panjang (penyakit jantung, gagal ginjal, kebutaan, amputasi).
-*   **Mengapa Harus Diselesaikan:** Tingginya prevalensi, laju pertumbuhan, dan dampak sosio-ekonomi yang parah menjadikan diabetes prioritas kesehatan global yang memerlukan solusi deteksi dan pencegahan yang lebih baik untuk mengurangi beban penyakit dan biaya terkait.
+*   **The Hidden Nature of Type 2 Diabetes:** Many cases are asymptomatic in the early stages, causing diagnosis to be often delayed until complications have already begun to develop.
+*   **Limitations of Screening Tests:** Standard tests like HbA₁c have **limited sensitivity** (an average of only 49%) for detecting pre-diabetes or early-stage diabetes, meaning many at-risk individuals are missed.
+*   **Inconsistent Screening Implementation:** Recommendations for regular screening for asymptomatic individuals are often not followed consistently, especially in resource-limited areas, exacerbating the problem of delayed diagnosis.
+*   **Why It's a Problem:** A delayed diagnosis means a lost opportunity for early lifestyle interventions or treatments that could significantly prevent or delay the development of damaging and costly complications.
 
-#### **2. Kesenjangan Kritis: Keterbatasan Skrining Konvensional**
+#### **3. The Proposed Solution: Machine Learning-Based Early Detection**
 
-*   **Sifat Tersembunyi Diabetes Tipe 2:** Banyak kasus tidak menunjukkan gejala (asimptomatik) pada tahap awal, menyebabkan diagnosis seringkali terlambat ketika komplikasi sudah mulai berkembang.
-*   **Keterbatasan Tes Skrining:** Tes standar seperti HbA₁c memiliki **sensitivitas yang terbatas** (rata-rata hanya 49%) untuk mendeteksi pra-diabetes atau diabetes tahap awal, sehingga banyak individu berisiko terlewatkan.
-*   **Implementasi Skrining Tidak Konsisten:** Rekomendasi skrining berkala untuk individu tanpa gejala seringkali tidak diikuti secara konsisten, terutama di wilayah dengan sumber daya terbatas, memperparah masalah diagnosis yang terlambat.
-*   **Mengapa Menjadi Masalah:** Keterlambatan diagnosis berarti hilangnya kesempatan untuk melakukan intervensi gaya hidup atau pengobatan dini yang dapat secara signifikan mencegah atau menunda perkembangan komplikasi yang merusak dan mahal.
+*   **How ML Solves the Problem:** Machine Learning (ML) algorithms have the unique ability to:
+    *   **Analyze Complex Patterns:** Process and model the intricate interactions between various risk factors (glucose, blood pressure, BMI, age, family/genetic history, etc.) that might be missed by simple statistical analysis or single tests.
+    *   **Identify Risk Earlier:** By recognizing predictive patterns from a combination of risk factors, ML models can potentially identify high-risk individuals **before** symptoms appear or **before** a single test like HbA₁c shows a significantly abnormal result.
+    *   **Potential for Increased Accuracy:** Studies show that ML models can often achieve **higher sensitivity and specificity** than traditional screening methods in predicting diabetes risk.
+*   **Goal of the Solution:** To develop an **accurate and reliable** machine learning-based prediction model to identify individuals at high risk of developing diabetes **as early as possible**. This will enable:
+    *   **More Targeted Screening:** Focusing resources on the individuals most at risk.
+    *   **Timely Preventive Interventions:** Encouraging lifestyle changes or closer monitoring for those identified as high-risk.
+    *   **Reduction of Long-Term Complications:** Ultimately, contributing to a decrease in the disease burden and healthcare costs associated with diabetes.
 
-#### **3. Solusi yang Diusulkan: Deteksi Dini Berbasis Machine Learning**
-
-*   **Bagaimana ML Menyelesaikan Masalah:** Algoritma Machine Learning (ML) memiliki kemampuan unik untuk:
-    *   **Menganalisis Pola Kompleks:** Mengolah dan memodelkan interaksi rumit antara berbagai faktor risiko (glukosa, tekanan darah, BMI, usia, riwayat keluarga/genetik, dll.) yang mungkin terlewatkan oleh analisis statistik sederhana atau tes tunggal.
-    *   **Identifikasi Risiko Lebih Awal:** Dengan mengenali pola prediktif dari kombinasi faktor risiko, model ML berpotensi mengidentifikasi individu berisiko tinggi **sebelum** gejala muncul atau **sebelum** tes tunggal seperti HbA₁c menunjukkan hasil abnormal secara signifikan.
-    *   **Potensi Peningkatan Akurasi:** Studi menunjukkan model ML seringkali dapat mencapai **sensitivitas dan spesifisitas yang lebih tinggi** dibandingkan metode skrining tradisional dalam memprediksi risiko diabetes.
-*   **Tujuan Solusi:** Mengembangkan model prediksi berbasis machine learning yang **akurat dan andal** untuk mengidentifikasi individu dengan risiko tinggi menderita diabetes **sedini mungkin**. Ini akan memungkinkan:
-    *   **Skrining yang Lebih Tertarget:** Memfokuskan sumber daya pada individu yang paling berisiko.
-    *   **Intervensi Pencegahan Tepat Waktu:** Mendorong perubahan gaya hidup atau pemantauan lebih ketat bagi mereka yang teridentifikasi berisiko tinggi.
-    *   **Pengurangan Komplikasi Jangka Panjang:** Pada akhirnya, berkontribusi pada penurunan beban penyakit dan biaya perawatan kesehatan terkait diabetes.
-
-Dengan memanfaatkan kekuatan machine learning, proyek ini bertujuan untuk menjembatani kesenjangan dalam deteksi dini diabetes, memberikan alat bantu yang potensial bagi tenaga medis dan sistem kesehatan untuk mengidentifikasi risiko secara lebih proaktif dan efektif.
+By leveraging the power of machine learning, this project aims to bridge the gap in early diabetes detection, providing a potential tool for medical professionals and healthcare systems to identify risk more proactively and effectively.
 
 ## Business Understanding
 
 ### Problem Statements
 
-Berdasarkan latar belakang yang telah dipaparkan sebelumnya, berikut adalah pernyataan masalah utama yang diidentifikasi:
+Based on the background described previously, here are the main problem statements identified:
 
-*   **Pernyataan Masalah 1:** **Beban Kesehatan Masyarakat Akibat Diabetes yang Tinggi dan Sulit Dikendalikan:** Prevalensi diabetes melitus secara global sangat tinggi dan terus meningkat, menimbulkan beban signifikan pada sistem kesehatan dan individu karena risiko komplikasi serius (seperti penyakit jantung, kerusakan saraf, gagal ginjal) yang dapat dicegah atau diminimalkan dengan deteksi dan manajemen dini.
-*   **Pernyataan Masalah 2:** **Keterbatasan Deteksi Dini Risiko Diabetes:** Terdapat keterbatasan signifikan dalam mengidentifikasi individu yang berisiko tinggi terkena diabetes pada tahap awal. Hal ini disebabkan oleh sifat penyakit yang seringkali berkembang tanpa gejala jelas, serta kurangnya akses terhadap metode skrining atau prediksi risiko yang akurat, cepat, dan efisien secara biaya dibandingkan pendekatan diagnostik konvensional.
-*   **Pernyataan Masalah 3:** **Kompleksitas Analisis Faktor Risiko dan Kurangnya Pemanfaatan Data:** Risiko diabetes dipengaruhi oleh interaksi kompleks berbagai faktor (termasuk riwayat kehamilan, kadar glukosa, tekanan darah, komposisi tubuh, usia, dan predisposisi genetik). Metode analisis konvensional seringkali kesulitan menangkap hubungan multifaktorial ini secara efektif, sehingga potensi data kesehatan digital yang besar belum dimanfaatkan secara optimal untuk mengembangkan model prediksi risiko yang andal dan dapat ditindaklanjuti.
+*   **Problem Statement 1:** **The High and Difficult-to-Control Public Health Burden of Diabetes:** The global prevalence of diabetes mellitus is very high and continues to rise, imposing a significant burden on healthcare systems and individuals due to the risk of serious complications (such as heart disease, nerve damage, kidney failure) that could be prevented or minimized with early detection and management.
+*   **Problem Statement 2:** **Limitations in the Early Detection of Diabetes Risk:** There are significant limitations in identifying individuals at high risk of developing diabetes at an early stage. This is due to the often asymptomatic nature of the disease's development, as well as a lack of access to accurate, fast, and cost-effective screening or risk prediction methods compared to conventional diagnostic approaches.
+*   **Problem Statement 3:** **Complexity of Risk Factor Analysis and Lack of Data Utilization:** Diabetes risk is influenced by the complex interaction of various factors (including pregnancy history, glucose levels, blood pressure, body composition, age, and genetic predisposition). Conventional analysis methods often struggle to effectively capture these multifactorial relationships, leaving the vast potential of digital health data underutilized for developing reliable and actionable risk prediction models.
 
 ### Goals
 
-Berdasarkan pernyataan masalah tersebut, tujuan utama dari proyek ini diantaranya:
+Based on these problem statements, the main goals of this project include:
 
-*   Mengembangkan model prediktif yang akurat untuk membantu identifikasi dini individu berisiko tinggi terkena diabetes. Dengan deteksi dini, intervensi preventif atau pengelolaan penyakit dapat dilakukan lebih awal, yang berpotensi mengurangi laju perkembangan penyakit menuju komplikasi serius dan pada akhirnya membantu meringankan beban kesehatan masyarakat jangka panjang.
-*   Mengatasi Keterbatasan Deteksi dengan Menyediakan metode yang dapat membantu prediksi risiko diabetes berbasis data yang lebih efektif dibandingkan pendekatan skrining konvensional atau analisis manual. Efektivitas ini diukur dari kemampuan model dalam memberikan prediksi yang akurat (tinggi dalam mengidentifikasi kasus positif dan negatif secara benar) dan potensi skalabilitasnya untuk digunakan pada populasi yang lebih luas.
-*   Memanfaatkan Data & Mengatasi Kompleksitas (dengan fitur-fitur relevan seperti Glukosa, BMI, Usia, dll.) untuk membangun model machine learning yang mampu **menangkap pola kompleks dan mengidentifikasi faktor-faktor risiko paling signifikan** yang berkontribusi terhadap prediksi diabetes. Ini akan memberikan wawasan berbasis bukti tentang pendorong utama risiko dalam dataset yang digunakan.
+*   To develop an accurate predictive model to assist in the early identification of individuals at high risk of developing diabetes. With early detection, preventive interventions or disease management can be initiated sooner, potentially reducing the rate of disease progression to serious complications and ultimately helping to alleviate the long-term public health burden.
+*   To address the limitations of detection by providing a data-driven method for diabetes risk prediction that is more effective than conventional screening approaches or manual analysis. This effectiveness will be measured by the model's ability to provide accurate predictions (high in correctly identifying both positive and negative cases) and its potential scalability for use in broader populations.
+*   To utilize data and address complexity (with relevant features like Glucose, BMI, Age, etc.) to build a machine learning model capable of **capturing complex patterns and identifying the most significant risk factors** that contribute to diabetes prediction. This will provide evidence-based insights into the main drivers of risk in the used dataset.
 
 ### Solution Statements
-Untuk mencapai tujuan-tujuan tersebut, berikut adalah solusi teknis terukur yang diajukan:
+To achieve these goals, the following measurable technical solutions are proposed:
 
-
-1.  **Eksplorasi Data (Exploratory Data Analysis - EDA):** Sebelum model dilatih, Analisis Data Eksploratif (EDA) akan dilakukan untuk memahami karakteristik data. EDA ini membantu dalam identifikasi pola, pemeriksaan hubungan antar variabel, dan penemuan wawasan yang berguna untuk prediksi diabetes.
-2.  **Penggunaan Library Lazypredict:** Library `Lazypredict` akan dimanfaatkan untuk secara cepat mengevaluasi dan membandingkan kinerja berbagai model machine learning pada dataset ini. `Lazypredict` memungkinkan pelatihan puluhan model klasifikasi (atau regresi, tergantung tugasnya) secara otomatis dengan hanya beberapa baris kode. Library ini kemudian menyajikan ringkasan performa (seperti akurasi, F1-score, dll.) untuk setiap model yang diuji pada dataset yang diberikan. Dengan menggunakan `Lazypredict`, kita dapat dengan efisien mendapatkan gambaran awal mengenai algoritma mana yang paling potensial atau berkinerja baik untuk dataset spesifik ini, tanpa perlu menulis kode boilerplate untuk setiap model secara manual. Hal ini mempercepat proses pemilihan model awal sebelum melakukan eksplorasi atau penyesuaian parameter (hyperparameter tuning) yang lebih mendalam pada beberapa model kandidat terbaik.
-3.  **Pengembangan dan Evaluasi Model Klasifikasi:** Mengembangkan model prediksi risiko diabetes menggunakan **algoritma machine learning** seperti *Decision Tree* dan *Gradient Boosting* sebagai *baseline* pada dataset yang tersedia. Kinerja model ini akan dievaluasi secara komprehensif menggunakan metrik evaluasi standar klasifikasi biner, termasuk **Akurasi**, **Presisi**, **Recall**, dan **F1-Score**. Fokus khusus akan diberikan pada metrik *Recall* untuk memastikan kemampuan model dalam mengidentifikasi sebanyak mungkin kasus diabetes aktual (meminimalkan *false negatives*).
-2.  **Eksplorasi dan Optimasi Model dengan  GridSearchCV:** Melakukan **perbandingan kinerja** antara model baseline dengan **algoritma Machine Learning** bervariasi yang dikenal memiliki performa baik untuk tugas klasifikasi seperti *Decision tree* dan *Gradient Boosting* untuk mengidentifikasi pendekatan yang mungkin memberikan hasil prediksi terbaik pada dataset ini. Selain itu, akan dilakukan **optimasi hyperparameter** pada model terpilih menggunakan teknik seperti *Grid Search* untuk memaksimalkan performa prediktifnya. Peningkatan kinerja akan diukur berdasarkan perbaikan pada metrik evaluasi yang sama (Akurasi, Presisi, Recall, F1-Score).
+1.  **Exploratory Data Analysis (EDA):** Before the model is trained, Exploratory Data Analysis (EDA) will be conducted to understand the characteristics of the data. This EDA helps in identifying patterns, examining relationships between variables, and discovering useful insights for diabetes prediction.
+2.  **Using the Lazypredict Library:** The `Lazypredict` library will be utilized to quickly evaluate and compare the performance of various machine learning models on this dataset. `Lazypredict` allows for the automated training of dozens of classification models (or regression, depending on the task) with just a few lines of code. The library then provides a summary of performance metrics (such as accuracy, F1-score, etc.) for each model tested on the given dataset. By using `Lazypredict`, we can efficiently get an initial overview of which algorithms are most promising or perform well on this specific dataset, without needing to write boilerplate code for each model manually. This speeds up the initial model selection process before conducting more in-depth exploration or hyperparameter tuning on a few of the best candidate models.
+3.  **Development and Evaluation of Classification Models:** Develop a diabetes risk prediction model using **machine learning algorithms** such as *Decision Tree* and *Gradient Boosting* as a baseline on the available dataset. The performance of this model will be comprehensively evaluated using standard binary classification metrics, including **Accuracy**, **Precision**, **Recall**, and **F1-Score**. Special focus will be given to the *Recall* metric to ensure the model's ability to identify as many actual diabetes cases as possible (minimizing *false negatives*).
+2.  **Model Exploration and Optimization with GridSearchCV:** Conduct a **performance comparison** between the baseline model and various **Machine Learning algorithms** known for good performance in classification tasks, such as *Decision Tree* and *Gradient Boosting*, to identify the approach that might yield the best prediction results on this dataset. Additionally, **hyperparameter optimization** will be performed on the selected model using techniques like *Grid Search* to maximize its predictive performance. The performance improvement will be measured by the enhancement in the same evaluation metrics (Accuracy, Precision, Recall, F1-Score).
 
 ## Data Understanding
 
-Dataset yang digunakan dalam proyek ini dapat dianalogikan dengan dataset yang sering digunakan dalam penelitian diabetes, seperti yang tersedia di repositori publik. Untuk informasi lebih lanjut mengenai diabetes: [National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)](https://www.niddk.nih.gov/health-information/diabetes)
+The dataset used in this project is analogous to datasets frequently used in diabetes research, such as those available in public repositories. For more information on diabetes: [National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)](https://www.niddk.nih.gov/health-information/diabetes)
 
-Dataset dapat diunduh melalui: [Healthcare Diabetes Dataset](https://www.kaggle.com/datasets/nanditapore/healthcare-diabetes/data)
+The dataset can be downloaded via: [Healthcare Diabetes Dataset](https://www.kaggle.com/datasets/nanditapore/healthcare-diabetes/data)
 
-## 6. Data Understanding
+### Dataset Information
 
-Bagian ini berisi pemahaman dasar mengenai dataset yang digunakan.
+Here is a summary of the information regarding the structure and data types in the dataset:
 
-### Informasi Dataset
-
-Berikut adalah ringkasan informasi mengenai struktur dan tipe data dalam dataset:
-
-*   Dataset ini memiliki **2768 sampel** (baris data).
-*   Terdapat **10 fitur** (kolom) dalam dataset, termasuk fitur target `Outcome`.
-*   Dataset terdiri dari **8 fitur** dengan tipe data `int64` dan **2 fitur** dengan tipe data `float64`.
-*   Dataset memiliki format CSV (Comma-Seperated Values).
+*   The dataset has **2768 samples** (rows of data).
+*   There are **10 features** (columns) in the dataset, including the target feature `Outcome`.
+*   The dataset consists of **8 features** with the `int64` data type and **2 features** with the `float64` data type.
+*   The dataset is in CSV (Comma-Separated Values) format.
 
 ### Sample Data:
 
@@ -115,278 +100,276 @@ Berikut adalah ringkasan informasi mengenai struktur dan tipe data dalam dataset
 | **75%**                  | 2076.25   | 6           | 141     | 80            | 32            | 130     | 36.62 | 0.62                     | 40    | 1       |
 | **max**                  | 2768      | 17          | 199     | 122           | 110           | 846     | 80.60 | 2.42                     | 81    | 1       |
 
+### Variables in the Diabetes Dataset are as follows:
 
-### Variabel-variabel pada Dataset Diabetes adalah sebagai berikut:
+*   **Id:** A unique identifier for each row or patient data entry.
+*   **Pregnancies:** The number of times a patient has been pregnant.
+*   **Glucose:** Plasma glucose concentration after a 2-hour oral glucose tolerance test (OGTT). This is an important indicator of the body's ability to process sugar.
+*   **BloodPressure:** Diastolic blood pressure (the lower number in a blood pressure measurement), measured in millimeters of mercury (mm Hg).
+*   **SkinThickness:** The thickness of the skin fold at the triceps area (back of the upper arm), measured in millimeters (mm). This measurement can be related to the amount of body fat.
+*   **Insulin:** The level of insulin in the blood serum after 2 hours (usually related to the OGTT), measured in micro international units per milliliter (mu U/ml). Insulin is the hormone that regulates blood sugar.
+*   **BMI:** Body Mass Index, calculated as weight in kilograms divided by the square of height in meters (kg/m²). It is a common measure for weight status (underweight, normal, overweight, obese).
+*   **DiabetesPedigreeFunction:** A score that represents the likelihood of diabetes risk based on family history (genetic factors). A higher value indicates a greater genetic risk.
+*   **Age:** The patient's age at the time the data was recorded, in years.
+*   **Outcome:** The target (class) variable, which is binary. A value of `1` indicates that the patient was diagnosed with diabetes, while a value of `0` indicates that the patient does not have diabetes. This is the variable the model will predict.
 
-*   **Id:** Pengenal unik (unique identifier) untuk setiap baris atau entri data pasien.
-*   **Pregnancies:** Jumlah berapa kali seorang pasien pernah hamil.
-*   **Glucose:** Konsentrasi glukosa plasma setelah 2 jam menjalani tes toleransi glukosa oral (OGTT). Ini adalah indikator penting kemampuan tubuh memproses gula.
-*   **BloodPressure:** Tekanan darah diastolik (angka bawah saat pengukuran tekanan darah), diukur dalam milimeter air raksa (mm Hg).
-*   **SkinThickness:** Ketebalan lipatan kulit pada area trisep (lengan atas bagian belakang), diukur dalam milimeter (mm). Pengukuran ini dapat berkaitan dengan jumlah lemak tubuh.
-*   **Insulin:** Kadar insulin dalam serum darah setelah 2 jam (biasanya terkait dengan tes OGTT), diukur dalam micro international units per milliliter (mu U/ml). Insulin adalah hormon pengatur gula darah.
-*   **BMI:** Indeks Massa Tubuh (Body Mass Index), dihitung sebagai berat badan dalam kilogram dibagi dengan kuadrat tinggi badan dalam meter (kg/m²). Ini adalah ukuran umum untuk status berat badan (kurus, normal, berlebih, obesitas).
-*   **DiabetesPedigreeFunction:** Fungsi silsilah diabetes, sebuah skor yang merepresentasikan kemungkinan risiko diabetes berdasarkan riwayat diabetes dalam keluarga (faktor genetik). Nilai yang lebih tinggi menunjukkan risiko genetik yang lebih besar.
-*   **Age:** Usia pasien saat data dicatat, dalam satuan tahun.
-*   **Outcome:** Variabel target (kelas) yang bersifat biner. Nilai `1` menunjukkan bahwa pasien didiagnosis menderita diabetes, sedangkan nilai `0` menunjukkan bahwa pasien tidak menderita diabetes. Variabel inilah yang akan diprediksi oleh model.
+### Deeper Data Understanding
 
-### Pendalaman Data Understanding
+A more in-depth Exploratory Data Analysis (EDA) will be performed to comprehensively understand the data. This process includes several key steps:
 
-Tahapan Analisis Data Eksploratif (EDA) yang lebih mendalam akan dilakukan untuk memahami data secara komprehensif. Proses ini meliputi beberapa langkah kunci:
+*   **Variable Description:** Describing the basic characteristics of each variable (feature) in the dataset to understand its meaning and range of values.
+*   **Outlier Analysis:** Identifying the presence of outliers in numerical features. This will primarily be done using *boxplot* visualizations, which can be generated by calling the `.plot(kind='box')` function on the relevant `pandas` DataFrame or Series object.
+*   **Feature Type Analysis:** Conducting separate analyses for categorical and numerical features to understand the properties and data distribution of each feature type.
+*   **Checking and Handling Missing Values:** Re-checking for the presence of missing values. If found, a simple handling logic or strategy (such as imputation or removal) will be created to clean the data.
+*   **Data Distribution Visualization:** Visualizing the distribution patterns of data in numerical features using *histograms*. Histograms will be easily created using the `.hist()` function provided by the `pandas` library.
+*   **Feature Correlation Analysis:** Analyzing the degree of linear relationship between numerical features. This is done by calculating the correlation matrix using the `.corr()` function from `pandas`. To facilitate the interpretation of correlation patterns, this matrix will be visualized as a *heatmap* using the `seaborn` library. This analysis can also help understand the relationship between numerical features and the target feature (even if categorical, its correlation [Point-Biserial] with numerical features can be calculated).
 
-*   **Deskripsi Variabel:** Mendeskripsikan karakteristik dasar dari setiap variabel (fitur) dalam dataset untuk memahami makna dan cakupan nilainya.
-*   **Analisis Outlier:** Mengidentifikasi adanya nilai pencilan (outliers) pada fitur numerik. Ini akan dilakukan terutama menggunakan visualisasi *boxplot*, yang dapat dihasilkan dengan memanggil fungsi `.plot(kind='box')` pada objek `pandas` DataFrame atau Series terkait.
-*   **Analisis Tipe Fitur:** Melakukan analisis terpisah untuk fitur kategorikal dan numerikal guna memahami properti dan distribusi data pada masing-masing tipe fitur tersebut.
-*   **Pemeriksaan dan Penanganan Missing Value:** Mengecek kembali keberadaan data yang hilang (missing values). Jika ditemukan, akan dibuat logika atau strategi penanganan sederhana (seperti imputasi atau penghapusan) untuk membersihkan data.
-*   **Visualisasi Distribusi Data:** Memvisualisasikan pola sebaran (distribusi) data pada fitur-fitur numerik menggunakan *histogram*. Histogram akan mudah dibuat menggunakan fungsi `.hist()` yang disediakan oleh library `pandas`.
-*   **Analisis Korelasi Fitur:** Menganalisis tingkat keterkaitan atau hubungan linear antar fitur numerik. Ini dilakukan dengan menghitung matriks korelasi menggunakan fungsi `.corr()` dari `pandas`. Untuk mempermudah interpretasi pola korelasi, matriks ini akan divisualisasikan dalam bentuk *heatmap* menggunakan library `seaborn`. Analisis ini juga dapat membantu memahami hubungan antara fitur numerik dan fitur target (jika kategorikal, meskipun heatmap utama fokus pada numerik-numerik).
+### Outlier Detection Using the IQR Method and Boxplot Visualization
 
+To identify and handle outliers in the data, a common statistical approach is the **Interquartile Range (IQR)** method. A very effective visualization to support this method is the **boxplot**. **In addition to using the standard IQR method, outlier handling for some features will also be customized based on real-world normal health value standards, referencing information or research from the data source (website) used.**
 
-### Deteksi Outlier Menggunakan Metode IQR dan Visualisasi Boxplot
+#### IQR (Interquartile Range) Method
 
-Untuk mengidentifikasi dan menangani nilai pencilan (outlier) dalam data, salah satu pendekatan statistik yang umum digunakan adalah metode **Interquartile Range (IQR)**. Visualisasi yang sangat efektif untuk mendukung metode ini adalah **boxplot**. **Selain menggunakan metode standar IQR, penanganan outlier pada beberapa fitur juga dilakukan dengan mempertimbangkan kustomisasi berdasarkan standar nilai normal kesehatan dalam kehidupan nyata, merujuk pada informasi atau riset dari sumber data (website) yang digunakan.**
+*   **Concept:** The IQR is a measure of statistical dispersion that focuses on the middle 50% of the data distribution. The IQR is calculated as the difference between the **Third Quartile (Q3)**, which is the 75th percentile value, and the **First Quartile (Q1)**, which is the 25th percentile value. Values that fall significantly outside this range are considered potential outliers.
 
-#### Metode IQR (Interquartile Range)
+*   **Steps for Calculating Outlier Boundaries:**
+    1.  Calculate the **First Quartile (Q1)** of the data.
+    2.  Calculate the **Third Quartile (Q3)** of the data.
+    3.  Calculate the **IQR** value with the formula: `IQR = Q3 - Q1`.
+    4.  Determine the **Lower Bound** for outliers: `Lower Bound = Q1 - (1.5 * IQR)`.
+    5.  Determine the **Upper Bound** for outliers: `Upper Bound = Q3 + (1.5 * IQR)`.
+    6.  Any data point with a value less than the **Lower Bound** or greater than the **Upper Bound** is identified as an **outlier** according to the standard IQR criteria.
 
-*   **Konsep:** IQR adalah ukuran penyebaran statistik yang fokus pada 50% data di tengah distribusi. IQR dihitung sebagai selisih antara **Kuartil Ketiga (Q3)**, yang merupakan nilai batas 75% data, dan **Kuartil Pertama (Q1)**, yang merupakan nilai batas 25% data. Nilai yang berada secara signifikan di luar rentang ini dianggap sebagai outlier potensial.
+#### Boxplot Visualization
 
-*   **Langkah-langkah Perhitungan Batas Outlier:**
-    1.  Hitung **Kuartil Pertama (Q1)** dari data.
-    2.  Hitung **Kuartil Ketiga (Q3)** dari data.
-    3.  Hitung nilai **IQR** dengan rumus: `IQR = Q3 - Q1`.
-    4.  Tentukan **Batas Bawah** untuk outlier: `Batas Bawah = Q1 - (1.5 * IQR)`.
-    5.  Tentukan **Batas Atas** untuk outlier: `Batas Atas = Q3 + (1.5 * IQR)`.
-    6.  Setiap titik data yang nilainya lebih kecil dari **Batas Bawah** atau lebih besar dari **Batas Atas** diidentifikasi sebagai **outlier** menurut kriteria IQR standar.
+*   **Concept:** A *boxplot* (or box-and-whisker plot) is a concise graphical representation of the distribution of numerical data. This visualization is very useful for understanding data spread, central tendency, and especially for visually identifying the presence of outliers based on the IQR method.
 
-#### Visualisasi Boxplot
+*   **Interpreting Boxplot Components:**
+    *   **Box:** Represents the **IQR** range, starting from **Q1** (bottom of the box) to **Q3** (top of the box). The length of this box is the IQR value.
+    *   **Median Line:** The line inside the box that marks the **Median** value (Q2 or the 50th percentile) of the data.
+    *   **Whiskers:** The lines extending from the box. Typically, the upper whisker extends to the largest data value still within `Q3 + (1.5 * IQR)`, and the lower whisker extends to the smallest data value still within `Q1 - (1.5 * IQR)`.
+    *   **Outlier Points:** Individual data points plotted outside the range of the whiskers. These are the points identified as **outliers** based on the IQR criteria (1.5 times the IQR below Q1 or above Q3).
 
-*   **Konsep:** *Boxplot* (atau diagram kotak garis) adalah representasi grafis ringkas dari distribusi data numerik. Visualisasi ini sangat berguna untuk memahami penyebaran data, tendensi sentral, dan terutama untuk mengidentifikasi keberadaan outlier secara visual berdasarkan metode IQR.
-
-*   **Interpretasi Komponen Boxplot:**
-    *   **Kotak (Box):** Merepresentasikan rentang **IQR**, dimulai dari **Q1** (batas bawah kotak) hingga **Q3** (batas atas kotak). Panjang kotak ini adalah nilai IQR.
-    *   **Garis Median:** Garis di dalam kotak yang menandakan nilai **Median** (Q2 atau persentil ke-50) dari data.
-    *   **Whisker (Kumis):** Garis yang memanjang dari kotak. Umumnya, whisker atas memanjang hingga nilai data terbesar yang masih berada dalam `Q3 + (1.5 * IQR)`, dan whisker bawah memanjang hingga nilai data terkecil yang masih berada dalam `Q1 - (1.5 * IQR)`.
-    *   **Titik Outlier:** Titik-titik data individual yang digambarkan di luar jangkauan *whisker*. Titik-titik inilah yang diidentifikasi sebagai **outlier** berdasarkan kriteria IQR (1.5 kali IQR di bawah Q1 atau di atas Q3).
-
-![Gambar 1. Contoh Visualisasi outliers dengan boxplot](image-1.png)
+![Figure 1. Example of outlier visualization with a boxplot](image-1.png)
 <br>
-*Gambar 1. Contoh Visualisasi outliers menggunakan boxplot*
+*Figure 1. Example of outlier visualization using a boxplot*
 
-Interpretasi: Boxplot ini secara visual menampilkan distribusi data untuk fitur 'Weight'. Kotak menunjukkan rentang interkuartil (IQR), garis tengah adalah median, dan titik-titik di luar garis 'whisker' (sebelah kanan) mengindikasikan adanya nilai pencilan (outlier) pada data berat badan yang lebih tinggi dari sebagian besar data lainnya.
+Interpretation: This boxplot visually displays the data distribution for the 'Weight' feature. The box shows the interquartile range (IQR), the middle line is the median, and the points outside the 'whisker' lines (on the right) indicate the presence of outliers in the higher weight data compared to the majority of the data.
 
-Setelah mengidentifikasi potensi outlier menggunakan metode IQR dan visualisasi *boxplot* (serta mempertimbangkan standar kesehatan jika relevan), langkah selanjutnya adalah menentukan cara menanganinya. Outlier, sebagai nilai ekstrem atau tidak biasa, berpotensi memengaruhi keakuratan analisis statistik dan kinerja model prediktif yang akan dibangun.
+After identifying potential outliers using the IQR method and boxplot visualization (and considering health standards if relevant), the next step is to decide how to handle them. Outliers, as extreme or unusual values, can potentially affect the accuracy of statistical analysis and the performance of the predictive model to be built.
 
-Dengan memahami batas atas dan batas bawah yang dihitung melalui IQR (dan divalidasi oleh *boxplot* serta pengetahuan domain), kita dapat mengambil tindakan yang sesuai. Opsi penanganan bisa meliputi:
+By understanding the upper and lower bounds calculated through IQR (and validated by boxplots and domain knowledge), we can take appropriate action. Handling options can include:
 
-*   **Penghapusan (Removal):** Menghilangkan observasi yang mengandung outlier, terutama jika outlier tersebut jelas merupakan kesalahan input atau anomali yang tidak representatif.
-*   **Transformasi (Transformation):** Menerapkan fungsi matematika (seperti logaritma) pada fitur untuk mengurangi dampak nilai ekstrem.
-*   **Capping/Winsorizing:** Mengganti nilai outlier dengan nilai batas atas atau batas bawah yang telah ditentukan (misalnya, mengganti semua nilai di atas `Q3 + 1.5*IQR` dengan nilai `Q3 + 1.5*IQR`).
-*   **Imputasi (Imputation):** Memperlakukan outlier sebagai *missing value* dan mengisinya dengan nilai statistik lain (seperti median atau mean).
+*   **Removal:** Eliminating observations that contain outliers, especially if the outliers are clearly input errors or unrepresentative anomalies.
+*   **Transformation:** Applying mathematical functions (like logarithm) to the feature to reduce the impact of extreme values.
+*   **Capping/Winsorizing:** Replacing outlier values with the predetermined upper or lower bound values (e.g., replacing all values above `Q3 + 1.5*IQR` with the value of `Q3 + 1.5*IQR`).
+*   **Imputation:** Treating outliers as missing values and filling them with another statistical value (like the median or mean).
 
-Keputusan mengenai metode penanganan outlier harus didasarkan pada pemahaman data dan tujuan analisis agar tidak menghilangkan informasi penting atau secara signifikan mengubah karakteristik asli dataset.
+The decision on the outlier handling method should be based on an understanding of the data and the analysis goals to avoid losing important information or significantly altering the original characteristics of the dataset.
 
-### Analisis Sebaran Data Menggunakan Histogram
+### Analysis of Data Distribution Using Histograms
 
-Untuk menganalisis bagaimana nilai-nilai dalam setiap fitur numerik tersebar (distribusinya), kita dapat menggunakan **histogram**. Histogram adalah visualisasi grafis yang efektif untuk menampilkan distribusi frekuensi data dalam interval-interval tertentu (disebut *bins*).
+To analyze how the values within each numerical feature are spread (their distribution), we can use a **histogram**. A histogram is an effective graphical visualization for displaying the frequency distribution of data in specific intervals (called *bins*).
 
-#### Proses Pembuatan dan Interpretasi Histogram:
+#### Process of Creating and Interpreting a Histogram:
 
-1.  **Pembagian Data ke dalam Interval (Binning):**
-    *   Data pada suatu fitur dibagi menjadi serangkaian interval atau *bin* yang tidak tumpang tindih.
-    *   Jumlah dan lebar *bin* dapat ditentukan secara otomatis oleh library visualisasi (seperti `pandas` atau `matplotlib`), atau dapat diatur secara manual. Aturan seperti *Sturges* atau *Scott's rule* dapat menjadi panduan dalam menentukan jumlah *bin* yang optimal.
+1.  **Binning the Data:**
+    *   The data for a feature is divided into a series of non-overlapping intervals or *bins*.
+    *   The number and width of the bins can be determined automatically by the visualization library (like `pandas` or `matplotlib`), or can be set manually. Rules like *Sturges* or *Scott's rule* can serve as a guide for determining the optimal number of bins.
 
-2.  **Perhitungan Frekuensi:**
-    *   Dihitung berapa banyak titik data (observasi) yang nilainya jatuh ke dalam masing-masing *bin*.
+2.  **Calculating Frequencies:**
+    *   The number of data points (observations) whose values fall into each bin is counted.
 
-3.  **Visualisasi:**
-    *   Histogram digambarkan sebagai serangkaian batang (bars) yang saling bersentuhan.
-    *   Sumbu horizontal (x-axis) merepresentasikan interval atau *bin*.
-    *   Sumbu vertikal (y-axis) merepresentasikan frekuensi (jumlah observasi) dalam setiap *bin*. Tinggi batang menunjukkan frekuensi tersebut.
+3.  **Visualization:**
+    *   A histogram is drawn as a series of adjacent bars.
+    *   The horizontal axis (x-axis) represents the intervals or bins.
+    *   The vertical axis (y-axis) represents the frequency (number of observations) in each bin. The height of the bar indicates this frequency.
 
-4.  **Interpretasi Visual:**
-    *   Dengan mengamati bentuk histogram, kita dapat memahami pola distribusi data secara visual:
-        *   **Bentuk Distribusi:** Apakah data cenderung simetris (misalnya, mendekati distribusi normal/Gaussian/lonceng), miring ke kanan (*right-skewed*), miring ke kiri (*left-skewed*), atau memiliki lebih dari satu puncak (*bimodal* atau *multimodal*)?
-        *   **Tendensi Sentral:** Di mana sebagian besar data terkonsentrasi?
-        *   **Penyebaran:** Seberapa luas rentang nilai data?
-        *   **Potensi Outlier:** Adanya batang yang terisolasi jauh dari kelompok utama dapat mengindikasikan adanya outlier.
+4.  **Visual Interpretation:**
+    *   By observing the shape of the histogram, we can visually understand the data's distribution pattern:
+        *   **Distribution Shape:** Does the data tend to be symmetric (e.g., approaching a normal/Gaussian/bell-shaped distribution), right-skewed, left-skewed, or have more than one peak (bimodal or multimodal)?
+        *   **Central Tendency:** Where is most of the data concentrated?
+        *   **Spread:** How wide is the range of data values?
+        *   **Potential Outliers:** The presence of an isolated bar far from the main group can indicate the presence of outliers.
 
-Analisis distribusi menggunakan histogram merupakan langkah penting dalam EDA. Ini memberikan pemahaman cepat mengenai karakteristik dasar setiap fitur numerik, membantu mengidentifikasi potensi masalah data (seperti kemiringan ekstrem), dan memberikan informasi yang berguna sebelum melanjutkan ke analisis yang lebih kompleks atau pembangunan model.
+Analyzing distributions using histograms is a crucial step in EDA. It provides a quick understanding of the basic characteristics of each numerical feature, helps identify potential data issues (like extreme skewness), and provides useful information before proceeding to more complex analysis or model building.
 
-![Gambar 2. Visualisasi Target Fitur Berupa Kategorikal](image-3.png)
-**Gambar 2. Visualisasi Target Fitur Berupa Kategorikal**
+![Figure 2. Visualization of the Categorical Target Feature](image-3.png)
+**Figure 2. Visualization of the Categorical Target Feature**
 
-Interpretasi: Plot ini menunjukkan distribusi jumlah pasien dalam dataset berdasarkan status diabetes (Outcome). Terlihat jelas bahwa jumlah pasien yang tidak menderita diabetes (Outcome 0 = 1816) secara signifikan lebih banyak dibandingkan dengan pasien yang menderita diabetes (Outcome 1 = 952). Hal ini mengindikasikan adanya ketidakseimbangan kelas dalam dataset.
+Interpretation: This plot shows the distribution of patients in the dataset based on their diabetes status (Outcome). It is clear that the number of patients who do not have diabetes (Outcome 0 = 1816) is significantly higher than the number of patients who do have diabetes (Outcome 1 = 952). This indicates a class imbalance in the dataset.
 
-![Gambar 3. Visualisasi EDA Fitur Numerik](image-6.png)
-**Gambar 3. Visualisasi EDA Fitur Numerik (Sebelum Penghapusan Outlier Kustom)**
+![Figure 3. EDA Visualization of Numerical Features](image-6.png)
+**Figure 3. EDA Visualization of Numerical Features (Before Custom Outlier Removal)**
 
-Interpretasi: Grid ini menampilkan distribusi (histogram) dan potensi outlier (boxplot) untuk setiap fitur numerik sebelum proses pembersihan outlier. Boxplot mengindikasikan adanya nilai-nilai pencilan (titik di luar whisker) pada beberapa fitur seperti `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, `Age`, dan `DiabetesPedigreeFunction`. Histogram menunjukkan variasi bentuk distribusi, banyak di antaranya cenderung miring ke kanan (right-skewed) seperti `Age`, `Insulin`, dan `Pregnancies`.
+Interpretation: This grid displays the distribution (histogram) and potential outliers (boxplot) for each numerical feature before the outlier cleaning process. The boxplots indicate the presence of outliers (points outside the whiskers) in several features such as `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, `Age`, and `DiabetesPedigreeFunction`. The histograms show varied distribution shapes, many of which tend to be right-skewed, like `Age`, `Insulin`, and `Pregnancies`.
 
-![Gambar 4. Visualisasi EDA Fitur Numerik setelah menghilangkan outlier](image-2.png)
-**Gambar 4. Visualisasi EDA Fitur Numerik (Setelah Penghapusan Outlier Kustom)**
+![Figure 4. EDA Visualization of Numerical Features after removing outliers](image-2.png)
+**Figure 4. EDA Visualization of Numerical Features (After Custom Outlier Removal)**
 
-Interpretasi: Grid ini menampilkan distribusi dan boxplot fitur numerik setelah dilakukan penghapusan outlier menggunakan batas kustom yang ditentukan untuk fitur `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, dan `Age`. Berdasarkan output kode, outlier signifikan pada `SkinThickness` (nilai > 100), `Insulin` (nilai > 850), dan `BMI` (nilai > 70) telah dihapus sesuai batas tersebut, menghasilkan boxplot yang lebih 'bersih' untuk fitur-fitur ini. Tidak ada outlier yang dihapus untuk `BloodPressure` dan `Age` berdasarkan batas kustom yang digunakan.
+Interpretation: This grid displays the distribution and boxplots of the numerical features after outlier removal using custom-defined boundaries for the `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, and `Age` features. Based on the code output, significant outliers in `SkinThickness` (values > 100), `Insulin` (values > 850), and `BMI` (values > 70) have been removed according to these limits, resulting in 'cleaner' boxplots for these features. No outliers were removed for `BloodPressure` and `Age` based on the custom limits used.
 
-![Gambar 5. Viisualisasi Korelasi antar fitur](image-4.png)
-**Gambar 5. Visualisasi Korelasi antar Fitur (Pairplot)**
+![Figure 5. Visualization of Correlation between features](image-4.png)
+**Figure 5. Visualization of Correlation between Features (Pairplot)**
 
-Interpretasi: Pairplot ini memvisualisasikan hubungan antar pasangan fitur numerik (melalui scatter plot) dan distribusi masing-masing fitur (melalui plot kepadatan/KDE di diagonal). Dari scatter plot, dapat diamati adanya potensi hubungan positif antara beberapa fitur, misalnya antara `BMI` dan `SkinThickness`, serta `Glucose` dan `Insulin`. Namun, banyak juga pasangan fitur yang menunjukkan hubungan lemah atau non-linear. Plot diagonal mengkonfirmasi bentuk distribusi yang bervariasi seperti yang terlihat pada histogram sebelumnya.
+Interpretation: This pairplot visualizes the relationships between pairs of numerical features (via scatter plots) and the distribution of each feature (via density/KDE plots on the diagonal). From the scatter plots, a potential positive relationship can be observed between some features, for example, between `BMI` and `SkinThickness`, and `Glucose` and `Insulin`. However, many feature pairs show weak or non-linear relationships. The diagonal plots confirm the varied distribution shapes as seen in the previous histograms.
 
-### Analisis Hubungan Antar Fitur Menggunakan Matriks Korelasi dan Heatmap
+### Analysis of Relationships Between Features Using a Correlation Matrix and Heatmap
 
-Untuk memahami bagaimana fitur-fitur dalam dataset saling berkaitan, khususnya hubungan linear antara **fitur-fitur numerik**, kita dapat menggunakan **matriks korelasi**. Matriks ini dihitung menggunakan fungsi `.corr()` dari library `pandas`.
+To understand how the features in the dataset are related to each other, especially the linear relationships between **numerical features**, we can use a **correlation matrix**. This matrix is calculated using the `.corr()` function from the `pandas` library.
 
-Agar pola hubungan ini lebih mudah diinterpretasikan secara visual, matriks korelasi tersebut seringkali disajikan dalam bentuk **heatmap** menggunakan library `seaborn`.
+To make these relationship patterns easier to interpret visually, the correlation matrix is often presented as a **heatmap** using the `seaborn` library.
 
-*   **Visualisasi Heatmap:**
-    *   *Heatmap* menyajikan matriks korelasi dalam bentuk grid berwarna.
-    *   Setiap sel dalam grid menunjukkan koefisien korelasi antara sepasang fitur.
-    *   Intensitas dan nuansa warna dalam *heatmap* (sesuai *colormap* yang dipilih) secara visual merepresentasikan **kekuatan** dan **arah** korelasi:
-        *   Nilai mendekati **+1** (seringkali diwakili warna terang/panas tertentu) menunjukkan **korelasi positif yang kuat** (jika satu fitur naik, fitur lain cenderung naik).
-        *   Nilai mendekati **-1** (seringkali diwakili warna terang/panas lain atau warna kontras) menunjukkan **korelasi negatif yang kuat** (jika satu fitur naik, fitur lain cenderung turun).
-        *   Nilai mendekati **0** (seringkali diwakili warna netral/gelap) menunjukkan **korelasi linear yang lemah atau tidak ada**.
+*   **Heatmap Visualization:**
+    *   A heatmap presents the correlation matrix in a colored grid.
+    *   Each cell in the grid shows the correlation coefficient between a pair of features.
+    *   The intensity and hue of the color in the heatmap (according to the chosen colormap) visually represent the **strength** and **direction** of the correlation:
+        *   A value close to **+1** (often represented by a specific light/hot color) indicates a **strong positive correlation** (if one feature increases, the other tends to increase).
+        *   A value close to **-1** (often represented by another light/hot color or a contrasting color) indicates a **strong negative correlation** (if one feature increases, the other tends to decrease).
+        *   A value close to **0** (often represented by a neutral/dark color) indicates a **weak or no linear correlation**.
 
-*   **Manfaat Analisis Korelasi:**
-    *   Mengidentifikasi fitur mana yang memiliki hubungan linear kuat satu sama lain (indikasi potensi **multikolinearitas**).
-    *   Melihat fitur numerik mana yang memiliki korelasi paling signifikan (positif atau negatif) dengan **variabel target** (dalam kasus ini, `Outcome`, yang meskipun kategorikal (0/1), dapat dihitung korelasinya [Point-Biserial] dengan fitur numerik).
-    *   Memberikan wawasan awal yang berguna untuk tahap selanjutnya seperti **pemilihan fitur** (*feature selection*) atau rekayasa fitur (*feature engineering*).
+*   **Benefits of Correlation Analysis:**
+    *   Identifying which features have a strong linear relationship with each other (an indication of potential **multicollinearity**).
+    *   Seeing which numerical features have the most significant correlation (positive or negative) with the **target variable** (in this case, `Outcome`, which, although categorical (0/1), can have its correlation [Point-Biserial] calculated with numerical features).
+    *   Providing useful initial insights for later stages like **feature selection** or **feature engineering**.
 
-![Visualisasi Heatmap Matriks korelasi fitur](image-5.png)
-**Gambar 6. Visualisasi Heatmap Matriks korelasi fitur**
+![Visualization of the Feature Correlation Matrix Heatmap](image-5.png)
+**Figure 6. Visualization of the Feature Correlation Matrix Heatmap**
 
-Interpretasi: Heatmap ini menunjukkan koefisien korelasi linear antar semua fitur numerik, termasuk target (`Outcome`). Fokus pada kolom atau baris 'Outcome', kita dapat melihat bahwa:
-    *   **Glucose** (0.49) memiliki korelasi positif **paling kuat** dengan `Outcome`, menunjukkan bahwa kadar glukosa yang lebih tinggi secara linear sangat berkaitan dengan kemungkinan diagnosis diabetes.
-    *   Fitur lain seperti **Insulin** (0.35), **BMI** (0.30), **SkinThickness** (0.28), **Age** (0.24), dan **Pregnancies** (0.22) juga menunjukkan korelasi positif yang moderat hingga lemah dengan `Outcome`. Artinya, peningkatan nilai pada fitur-fitur ini cenderung berhubungan dengan peningkatan kemungkinan diabetes.
-    *   **DiabetesPedigreeFunction** (0.16) dan **BloodPressure** (0.18) menunjukkan korelasi positif yang **paling lemah** dengan `Outcome` di antara semua fitur.
-Secara keseluruhan, hampir semua fitur menunjukkan korelasi positif dengan `Outcome`, namun `Glucose` adalah prediktor linear terkuat.
+Interpretation: This heatmap shows the linear correlation coefficients between all numerical features, including the target (`Outcome`). Focusing on the 'Outcome' column or row, we can see that:
+*   **Glucose** (0.49) has the **strongest positive correlation** with `Outcome`, indicating that higher glucose levels are strongly linearly related to the likelihood of a diabetes diagnosis.
+*   Other features like **Insulin** (0.35), **BMI** (0.30), **SkinThickness** (0.28), **Age** (0.24), and **Pregnancies** (0.22) also show a moderate to weak positive correlation with `Outcome`. This means that an increase in the values of these features tends to be associated with an increased likelihood of diabetes.
+*   **DiabetesPedigreeFunction** (0.16) and **BloodPressure** (0.18) show the **weakest positive correlation** with `Outcome` among all features.
+Overall, almost all features show a positive correlation with `Outcome`, but `Glucose` is the strongest linear predictor.
 
 ## Data Preparation
 
-Tahap persiapan data (Data Preparation) sangat krusial untuk memastikan kualitas dan kesesuaian data sebelum digunakan untuk melatih model machine learning yang efektif dan andal. Proses ini membantu mengatasi masalah umum dalam data mentah seperti nilai yang hilang, data duplikat, outlier, dan format data yang tidak sesuai untuk algoritma machine learning. Berdasarkan analisis kode yang dijalankan, berikut adalah langkah-langkah persiapan data yang dilakukan pada dataset diabetes ini:
+The Data Preparation stage is crucial to ensure the quality and suitability of the data before it is used to train an effective and reliable machine learning model. This process helps address common issues in raw data such as missing values, duplicate data, outliers, and data formats that are not suitable for machine learning algorithms. Based on the analysis of the executed code, here are the data preparation steps performed on this diabetes dataset:
 
-### Pemisahan Fitur (Features) dan Target
+### Feature and Target Separation
 
-*   **Proses:** Variabel independen (fitur/prediktor) yang akan digunakan sebagai input model (seperti `Glucose`, `BMI`, `Age`, dll.) dipisahkan dari variabel dependen (target/label) yang ingin diprediksi (`Outcome`). Kolom identifikasi unik (`Id`) yang tidak relevan untuk pemodelan juga dihapus dari himpunan fitur. Fitur disimpan dalam variabel `X`, dan target disimpan dalam variabel `y`.
-*   Langkah ini fundamental karena algoritma supervised machine learning memerlukan input (fitur `X`) dan output yang diharapkan (target `y`) secara terpisah. Model belajar dari hubungan antara `X` dan `y` pada data training untuk nantinya dapat memprediksi `y` dari `X` yang baru. Kolom `Id` dihapus karena tidak memiliki nilai prediktif terhadap `Outcome`.
+*   **Process:** The independent variables (features/predictors) that will be used as model input (such as `Glucose`, `BMI`, `Age`, etc.) are separated from the dependent variable (target/label) that we want to predict (`Outcome`). The unique identifier column (`Id`), which is irrelevant for modeling, is also removed from the feature set. The features are stored in the `X` variable, and the target is stored in the `y` variable.
+*   This step is fundamental because supervised machine learning algorithms require the input (features `X`) and the expected output (target `y`) separately. The model learns from the relationship between `X` and `y` in the training data to later be able to predict `y` from a new `X`. The `Id` column is removed because it has no predictive value for the `Outcome`.
 
-### Pembagian Dataset 80:20 (Train/Test Split)
+### 80:20 Dataset Split (Train/Test Split)
 
-*   **Proses:**
-    1.  Keseluruhan dataset (`X` dan `y`) dibagi menjadi dua himpunan terpisah: data training dan data testing.
-    2.  Fungsi `train_test_split` dari `sklearn.model_selection` digunakan untuk melakukan pembagian ini secara acak namun terkontrol (menggunakan `random_state=42` untuk reproduktibilitas) dengan rasio **80:20**.
-    3.  Hasil pembagian ini menghasilkan dimensi data sebagai berikut:
-        *   `X_train`: (2208 sampel, 8 fitur) - Data fitur untuk melatih model.
-        *   `X_test`: (553 sampel, 8 fitur) - Data fitur untuk menguji model.
-        *   `y_train`: (2208 sampel,) - Data target untuk melatih model.
-        *   `y_test`: (553 sampel,) - Data target untuk menguji model.
-*   Pembagian ini sangat penting untuk **evaluasi performa model yang objektif**. Data training digunakan agar model dapat 'belajar' pola dari data. Data testing, yang **tidak pernah dilihat** oleh model selama pelatihan, digunakan untuk menguji seberapa baik model dapat **menggeneralisasi** pengetahuannya ke data baru. Tanpa pemisahan ini, kita tidak dapat mengetahui apakah model hanya menghafal data training (*overfitting*) atau benar-benar mempelajari pola yang berguna. Rasio 80:20 adalah praktik umum yang memberikan cukup data untuk pelatihan sambil menyisakan porsi yang representatif untuk pengujian.
+*   **Process:**
+    1.  The entire dataset (`X` and `y`) is divided into two separate sets: training data and testing data.
+    2.  The `train_test_split` function from `sklearn.model_selection` is used to perform this split randomly but controllably (using `random_state=42` for reproducibility) with an **80:20** ratio.
+    3.  The result of this split produces the following data dimensions:
+        *   `X_train`: (2208 samples, 8 features) - Feature data for training the model.
+        *   `X_test`: (553 samples, 8 features) - Feature data for testing the model.
+        *   `y_train`: (2208 samples,) - Target data for training the model.
+        *   `y_test`: (553 samples,) - Target data for testing the model.
+*   This split is very important for **objective model performance evaluation**. The training data is used so the model can 'learn' patterns from the data. The testing data, which the model **has never seen** during training, is used to test how well the model can **generalize** its knowledge to new data. Without this separation, we cannot know if the model is just memorizing the training data (*overfitting*) or has actually learned useful patterns. The 80:20 ratio is a common practice that provides enough data for training while leaving a representative portion for testing.
 
-### Penanganan Ketidakseimbangan Kelas (Class Imbalance) dengan SMOTE
+### Handling Class Imbalance with SMOTE
 
-*   **Proses:** Teknik **SMOTE (Synthetic Minority Over-sampling Technique)** diterapkan **hanya pada data training** (`X_train`, `y_train`). SMOTE bekerja dengan cara membuat sampel sintetis baru untuk kelas minoritas (`Outcome` = 1, yaitu pasien diabetes) berdasarkan karakteristik sampel minoritas yang sudah ada, sehingga jumlah sampel kelas minoritas mendekati jumlah sampel kelas mayoritas (`Outcome` = 0) dalam set pelatihan.
-*   Analisis awal menunjukkan bahwa jumlah pasien non-diabetes (`Outcome` = 0) jauh lebih banyak daripada pasien diabetes (`Outcome` = 1) dalam dataset (ketidakseimbangan kelas). Jika dibiarkan, model machine learning cenderung **menjadi bias** dan lebih baik dalam memprediksi kelas mayoritas, sementara performanya buruk dalam mengidentifikasi kelas minoritas (yang seringkali lebih penting dalam konteks medis). Dengan menyeimbangkan kelas menggunakan SMOTE pada data training, kita membantu model **memberikan perhatian yang lebih setara** pada kedua kelas dan meningkatkan kemampuannya untuk mengenali pola pada pasien diabetes. Penting untuk menerapkan SMOTE *hanya* pada data training untuk **mencegah kebocoran data** (*data leakage*) dan memastikan evaluasi pada data testing mencerminkan performa model pada distribusi data dunia nyata yang tidak seimbang.
+*   **Process:** The **SMOTE (Synthetic Minority Over-sampling Technique)** is applied **only to the training data** (`X_train`, `y_train`). SMOTE works by creating new synthetic samples for the minority class (`Outcome` = 1, i.e., diabetic patients) based on the characteristics of existing minority samples, so that the number of minority class samples approaches the number of majority class samples (`Outcome` = 0) in the training set.
+*   Initial analysis showed that the number of non-diabetic patients (`Outcome` = 0) was much larger than diabetic patients (`Outcome` = 1) in the dataset (class imbalance). If left unaddressed, machine learning models tend to **become biased** and perform better at predicting the majority class, while performing poorly at identifying the minority class (which is often more important in a medical context). By balancing the classes using SMOTE on the training data, we help the model **give more equal attention** to both classes and improve its ability to recognize patterns in diabetic patients. It is crucial to apply SMOTE *only* to the training data to **prevent data leakage** and ensure that the evaluation on the testing data reflects the model's performance on a real-world imbalanced data distribution.
 
 ## Modeling
 
-Tahapan modeling adalah inti dari proyek machine learning ini, di mana algoritma dipilih, dilatih, dan dioptimalkan untuk melakukan prediksi `Outcome` (apakah pasien menderita diabetes atau tidak) berdasarkan fitur-fitur yang telah disiapkan.
+The modeling stage is the core of this machine learning project, where algorithms are selected, trained, and optimized to predict the `Outcome` (whether a patient has diabetes or not) based on the prepared features.
 
-### Pendekatan Pemilihan Model Awal dengan `LazyPredict`
+### Initial Model Selection Approach with `LazyPredict`
 
-*   **Proses:** Untuk mendapatkan gambaran awal performa berbagai algoritma klasifikasi pada dataset ini secara efisien, library `LazyPredict` (khususnya `LazyClassifier`) digunakan. `LazyPredict` melatih puluhan model klasifikasi dengan parameter default pada data training dan testing yang telah dipisah (`X_train`, `X_test`, `y_train`, `y_test`) sebelum penerapan SMOTE pada training set.
-*   **Alasan Diperlukan:** Menggunakan `LazyPredict` memungkinkan identifikasi cepat model-model yang paling potensial. Hasil dari `LazyPredict` (dilihat dari metrik seperti F1 Score, Accuracy, Balanced Accuracy) secara konsisten menempatkan **Decision Tree Classifier** di peringkat teratas, menunjukkan performa awal yang superior dibandingkan model lain pada dataset ini. Algoritma berbasis *tree ensembles* lainnya seperti LGBM dan XGBoost juga menunjukkan performa yang sangat kompetitif.
+*   **Process:** To efficiently get an initial overview of the performance of various classification algorithms on this dataset, the `LazyPredict` library (specifically `LazyClassifier`) was used. `LazyPredict` trains dozens of classification models with their default parameters on the separated training and testing data (`X_train`, `X_test`, `y_train`, `y_test`) before the application of SMOTE on the training set.
+*   **Reasoning:** Using `LazyPredict` allows for the rapid identification of the most promising models. The results from `LazyPredict` (based on metrics like F1 Score, Accuracy, Balanced Accuracy) consistently placed the **Decision Tree Classifier** at the top, indicating superior initial performance compared to other models on this dataset. Other tree-based ensemble algorithms like LGBM and XGBoost also showed very competitive performance.
 
-### Pemilihan Model Terbaik sebagai Solusi (Berdasarkan LazyPredict) dan Validasi Lanjutan
+### Selection of the Best Model as a Solution (Based on LazyPredict) and Further Validation
 
-*   **Pemilihan Awal:** Berdasarkan performa awal yang dominan pada `LazyPredict`, **Decision Tree Classifier dipilih sebagai kandidat model terbaik utama** untuk solusi proyek ini. Keunggulannya dalam metrik evaluasi awal menjadikannya pilihan logis pertama.
-*   **Proses Validasi Lanjutan (Tuning):** Meskipun Decision Tree dipilih sebagai kandidat terkuat, praktik terbaik dalam machine learning menyarankan untuk tidak hanya mengandalkan parameter default dan perlu mewaspadai potensi masalah seperti overfitting (kelemahan umum Decision Tree). Oleh karena itu, untuk memastikan pilihan yang robust dan memitigasi risiko, diputuskan untuk melakukan *hyperparameter tuning* tidak hanya pada Decision Tree, tetapi juga pada dua model teratas lainnya yang juga menunjukkan performa kuat di LazyPredict:
-    1.  **Decision Tree Classifier** (Kandidat utama)
-    2.  **LightGBM Classifier (LGBM)** (Validasi & Perbandingan)
-    3.  **XGBoost Classifier (XGB)** (Validasi & Perbandingan)
-*   **Alasan Validasi Lanjutan:** Melakukan tuning pada ketiga model teratas ini bertujuan untuk:
-    *   Mengoptimalkan performa Decision Tree dan melihat apakah keunggulannya tetap bertahan setelah tuning.
-    *   Mengoptimalkan LGBM dan XGBoost untuk melihat potensi maksimal mereka sebagai alternatif.
-    *   Membandingkan model-model yang sudah dioptimalkan secara lebih adil, terutama dalam hal kemampuan generalisasi dan potensi overfitting.
-    *   Memastikan bahwa solusi akhir (yang awalnya ditunjuk Decision Tree) benar-benar merupakan pilihan terbaik setelah eksplorasi mendalam.
+*   **Initial Selection:** Based on its dominant initial performance in `LazyPredict`, the **Decision Tree Classifier was chosen as the primary best model candidate** for this project's solution. Its advantage in the initial evaluation metrics made it the first logical choice.
+*   **Further Validation Process (Tuning):** Although the Decision Tree was selected as the strongest candidate, best practices in machine learning suggest not relying solely on default parameters and being wary of potential issues like overfitting (a common weakness of Decision Trees). Therefore, to ensure a robust choice and mitigate risks, it was decided to perform *hyperparameter tuning* not only on the Decision Tree but also on the other two top models that also showed strong performance in LazyPredict:
+    1.  **Decision Tree Classifier** (Primary candidate)
+    2.  **LightGBM Classifier (LGBM)** (Validation & Comparison)
+    3.  **XGBoost Classifier (XGB)** (Validation & Comparison)
+*   **Reason for Further Validation:** Tuning these top three models aims to:
+    *   Optimize the Decision Tree's performance and see if its advantage holds after tuning.
+    *   Optimize LGBM and XGBoost to see their maximum potential as alternatives.
+    *   Compare the optimized models more fairly, especially in terms of generalization ability and potential for overfitting.
+    *   Ensure that the final solution (initially pointed to the Decision Tree) is truly the best choice after a thorough exploration.
 
-### Penjelasan Algoritma Klasifikasi yang Dievaluasi
+### Explanation of the Evaluated Classification Algorithms
 
-Berikut adalah penjelasan singkat, kelebihan, dan kekurangan dari tiga algoritma yang dievaluasi lebih lanjut:
+Here is a brief explanation, advantages, and disadvantages of the three algorithms that were further evaluated:
 
 #### Decision Tree Classifier
 
-*   **Konsep:** Algoritma supervised learning yang membangun model prediksi dalam bentuk struktur pohon. Pohon ini membuat keputusan berdasarkan serangkaian aturan if-then-else pada nilai fitur untuk mengklasifikasikan data.
-*   **Kelebihan:** Mudah diinterpretasikan dan divisualisasikan, tidak memerlukan normalisasi data secara ekstensif, dapat menangani data numerik dan kategorikal (meskipun dalam kasus ini semua fitur numerik).
-*   **Kekurangan:** Cenderung *overfitting* (terlalu kompleks dan menghafal data training), terutama jika kedalaman pohon tidak dibatasi. Sensitif terhadap perubahan kecil pada data training, dapat menghasilkan pohon yang berbeda secara signifikan.
+*   **Concept:** A supervised learning algorithm that builds a predictive model in the form of a tree structure. The tree makes decisions based on a series of if-then-else rules on feature values to classify data.
+*   **Advantages:** Easy to interpret and visualize, does not require extensive data normalization, can handle both numerical and categorical data (although in this case, all features are numerical).
+*   **Disadvantages:** Prone to *overfitting* (becoming too complex and memorizing the training data), especially if the tree depth is not limited. Sensitive to small changes in the training data, which can result in a significantly different tree.
 
 #### LightGBM Classifier (LGBM)
 
-*   **Konsep:** Implementasi *Gradient Boosting* yang sangat efisien. Menggunakan teknik *gradient-based one-side sampling* (GOSS) dan *exclusive feature bundling* (EFB) serta algoritma berbasis histogram untuk mempercepat pelatihan dan mengurangi penggunaan memori. Pohon tumbuh secara *leaf-wise* (memilih daun yang memberikan penurunan loss terbesar).
-*   **Kelebihan:** Kecepatan training yang sangat tinggi dan penggunaan memori yang lebih rendah dibandingkan GBDT lainnya, seringkali menghasilkan akurasi yang sangat baik, cocok untuk dataset besar.
-*   **Kekurangan:** Lebih rentan terhadap *overfitting* pada dataset yang lebih kecil dibandingkan XGBoost jika parameter tidak di-tune dengan hati-hati, parameter tuning bisa jadi lebih kompleks.
+*   **Concept:** A highly efficient implementation of *Gradient Boosting*. It uses *gradient-based one-side sampling* (GOSS) and *exclusive feature bundling* (EFB) techniques, as well as a histogram-based algorithm to speed up training and reduce memory usage. Trees grow *leaf-wise* (choosing the leaf that provides the greatest loss reduction).
+*   **Advantages:** Very high training speed and lower memory usage compared to other GBDTs, often results in very good accuracy, suitable for large datasets.
+*   **Disadvantages:** More prone to *overfitting* on smaller datasets compared to XGBoost if parameters are not tuned carefully, parameter tuning can be more complex.
 
 #### XGBoost Classifier (XGB)
 
-*   **Konsep:** Implementasi *Gradient Boosting* lainnya yang sangat populer dan dioptimalkan. Menyertakan regularisasi L1 dan L2 bawaan untuk mencegah *overfitting*, dapat menangani nilai yang hilang secara internal (meskipun dalam proyek ini sudah diimputasi), dan mendukung pemrosesan paralel.
-*   **Kelebihan:** Performa akurasi yang sangat tinggi, kontrol *overfitting* yang baik melalui regularisasi, fleksibilitas tinggi melalui banyak parameter tuning, sangat populer dan memiliki komunitas dukungan yang besar.
-*   **Kekurangan:** Waktu training bisa lebih lama dibandingkan LGBM pada beberapa kasus, masih memerlukan tuning parameter yang cermat untuk performa optimal.
+*   **Concept:** Another very popular and optimized implementation of *Gradient Boosting*. It includes built-in L1 and L2 regularization to prevent *overfitting*, can handle missing values internally (though they were imputed in this project), and supports parallel processing.
+*   **Advantages:** Very high accuracy performance, good *overfitting* control through regularization, high flexibility through many tuning parameters, very popular with a large support community.
+*   **Disadvantages:** Training time can be longer than LGBM in some cases, still requires careful parameter tuning for optimal performance.
 
-### Proses Peningkatan Model (Hyperparameter Tuning)
+### Model Improvement Process (Hyperparameter Tuning)
 
-*   **Tujuan:** Mencari kombinasi hyperparameter terbaik untuk *masing-masing dari ketiga model* (Decision Tree, LGBM, XGBoost) guna memaksimalkan performa dan kemampuan generalisasi.
-*   **Proses:**
-    1.  **Metode:** `GridSearchCV` dari `sklearn.model_selection` digunakan untuk mencoba semua kombinasi parameter dalam grid yang ditentukan.
-    2.  **Validasi Silang (Cross-Validation):** Validasi silang 5-fold (`cv=5`) digunakan pada data training (`X_train` yang sudah di-SMOTE, `y_train`) untuk estimasi performa yang robust.
-    3.  **Metrik:** `'accuracy'` digunakan sebagai metrik utama untuk pemilihan parameter terbaik dalam `GridSearchCV`.
-    4.  **Parameter Grid yang Diuji:** (Grid parameter sama seperti sebelumnya untuk DT, LGBM, XGBoost)
+*   **Goal:** To find the best combination of hyperparameters for *each of the three models* (Decision Tree, LGBM, XGBoost) to maximize performance and generalization ability.
+*   **Process:**
+    1.  **Method:** `GridSearchCV` from `sklearn.model_selection` was used to try all parameter combinations in a specified grid.
+    2.  **Cross-Validation:** 5-fold cross-validation (`cv=5`) was used on the training data (the SMOTE'd `X_train`, `y_train`) for a robust performance estimation.
+    3.  **Metric:** `'accuracy'` was used as the primary metric for selecting the best parameters in `GridSearchCV`.
+    4.  **Parameter Grids Tested:** (The parameter grids were the same as before for DT, LGBM, XGBoost)
         *   **DecisionTree:** `criterion`, `max_depth`, `min_samples_split`, `min_samples_leaf`.
         *   **LGBM:** `n_estimators`, `max_depth`, `learning_rate`, `num_leaves`.
         *   **XGBoost:** `n_estimators`, `max_depth`, `learning_rate`, `subsample`.
-    5.  **Hasil Tuning:** Parameter terbaik (`best_params_`) dan model terlatih terbaik (`best_estimator_`) didapatkan untuk *setiap* algoritma setelah proses `GridSearchCV`.
+    5.  **Tuning Results:** The best parameters (`best_params_`) and the best trained model (`best_estimator_`) were obtained for *each* algorithm after the `GridSearchCV` process.
 
-Setelah tahap tuning ini, ketiga model yang telah dioptimalkan (Decision Tree, LGBM, dan XGBoost) siap untuk dievaluasi secara final menggunakan data testing (`X_test`, `y_test`). Tahap evaluasi selanjutnya akan membandingkan performa ketiganya secara mendalam (termasuk potensi overfitting) untuk mengkonfirmasi atau merevisi pemilihan Decision Tree sebagai solusi terbaik.
+After this tuning stage, the three optimized models (Decision Tree, LGBM, and XGBoost) are ready for a final evaluation using the testing data (`X_test`, `y_test`). The next evaluation stage will compare their performance in depth (including potential overfitting) to confirm or revise the selection of the Decision Tree as the best solution.
 
 ## Evaluation
 
-Tahap evaluasi bertujuan untuk mengukur performa model-model machine learning yang telah dilatih dan dioptimalkan menggunakan data testing. Metrik evaluasi yang tepat sangat penting untuk memahami seberapa baik model dapat digeneralisasi pada data baru dan seberapa cocok model tersebut untuk menyelesaikan masalah klasifikasi diabetes ini.
+The evaluation stage aims to measure the performance of the machine learning models that have been trained and optimized using the testing data. The right evaluation metrics are crucial for understanding how well a model can generalize to new data and how suitable it is for solving this diabetes classification problem.
 
-### Metrik Evaluasi yang Digunakan
+### Evaluation Metrics Used
 
-Karena ini adalah masalah **klasifikasi biner** (memprediksi apakah pasien menderita diabetes (1) atau tidak (0)), metrik evaluasi berikut digunakan:
+Since this is a **binary classification** problem (predicting whether a patient has diabetes (1) or not (0)), the following evaluation metrics are used:
 
-1.  **Accuracy (Akurasi):**
-    *   **Formula:** `(Jumlah Prediksi Benar (TP + TN)) / (Total Jumlah Prediksi)`
-    *   **Cara Kerja:** Mengukur proporsi keseluruhan prediksi yang benar dilakukan oleh model, baik untuk kelas positif (diabetes) maupun negatif (non-diabetes). Semakin tinggi nilainya (mendekati 1), semakin baik performa keseluruhan model.
-    *   **Konteks:** Memberikan gambaran umum performa, namun bisa menyesatkan pada dataset yang tidak seimbang jika hanya metrik ini yang dilihat.
+1.  **Accuracy:**
+    *   **Formula:** `(Number of Correct Predictions (TP + TN)) / (Total Number of Predictions)`
+    *   **How it Works:** Measures the overall proportion of correct predictions made by the model, for both positive (diabetes) and negative (non-diabetes) classes. The higher the value (closer to 1), the better the overall model performance.
+    *   **Context:** Provides a general overview of performance but can be misleading on imbalanced datasets if it's the only metric considered.
 
-2.  **Precision (Presisi):**
+2.  **Precision:**
     *   **Formula:** `TP / (TP + FP)` (True Positives / (True Positives + False Positives))
-    *   **Cara Kerja:** Mengukur proporsi prediksi positif (pasien diprediksi diabetes) yang ternyata memang benar positif (pasien sebenarnya diabetes). Metrik ini menjawab pertanyaan: "Dari semua pasien yang diprediksi menderita diabetes, berapa persen yang benar-benar menderita diabetes?"
-    *   **Konteks:** Penting ketika biaya *False Positive* (salah memprediksi pasien sehat sebagai diabetes) tinggi.
+    *   **How it Works:** Measures the proportion of positive predictions (patient predicted to have diabetes) that were actually correct (patient actually has diabetes). This metric answers the question: "Of all the patients predicted to have diabetes, what percentage actually have it?"
+    *   **Context:** Important when the cost of a *False Positive* (wrongly predicting a healthy patient as diabetic) is high.
 
 3.  **Recall (Sensitivity / True Positive Rate):**
     *   **Formula:** `TP / (TP + FN)` (True Positives / (True Positives + False Negatives))
-    *   **Cara Kerja:** Mengukur proporsi kasus positif aktual (pasien yang sebenarnya diabetes) yang berhasil diidentifikasi dengan benar oleh model. Metrik ini menjawab pertanyaan: "Dari semua pasien yang sebenarnya menderita diabetes, berapa persen yang berhasil terdeteksi oleh model?"
-    *   **Konteks:** Sangat krusial dalam diagnosis medis seperti diabetes. Biaya *False Negative* (gagal mendeteksi pasien yang sebenarnya diabetes) bisa sangat tinggi karena pasien tidak mendapatkan penanganan yang diperlukan. Recall yang tinggi untuk kelas 'diabetes' sangat diinginkan.
+    *   **How it Works:** Measures the proportion of actual positive cases (patients who actually have diabetes) that were correctly identified by the model. This metric answers the question: "Of all the patients who actually have diabetes, what percentage were successfully detected by the model?"
+    *   **Context:** Crucial in medical diagnoses like diabetes. The cost of a *False Negative* (failing to detect a patient who actually has diabetes) can be very high because the patient does not receive necessary treatment. A high recall for the 'diabetes' class is highly desirable.
 
 4.  **F1-Score:**
     *   **Formula:** `2 * (Precision * Recall) / (Precision + Recall)`
-    *   **Cara Kerja:** Merupakan rata-rata harmonik dari Precision dan Recall. Metrik ini memberikan keseimbangan antara Precision dan Recall, berguna ketika kedua metrik tersebut sama pentingnya. Nilai F1-Score tinggi jika baik Precision maupun Recall tinggi.
-    *   **Konteks:** Memberikan ukuran performa tunggal yang mempertimbangkan baik False Positives maupun False Negatives.
+    *   **How it Works:** It is the harmonic mean of Precision and Recall. This metric provides a balance between Precision and Recall, useful when both metrics are equally important. The F1-Score is high if both Precision and Recall are high.
+    *   **Context:** Provides a single performance measure that considers both False Positives and False Negatives.
 
 5.  **Confusion Matrix:**
-    *   **Struktur:** Sebuah tabel 2x2 yang menyajikan jumlah prediksi benar dan salah secara rinci:
-        *   **True Positives (TP):** Pasien diabetes diprediksi sebagai diabetes.
-        *   **True Negatives (TN):** Pasien non-diabetes diprediksi sebagai non-diabetes.
-        *   **False Positives (FP):** Pasien non-diabetes diprediksi sebagai diabetes (Kesalahan Tipe I).
-        *   **False Negatives (FN):** Pasien diabetes diprediksi sebagai non-diabetes (Kesalahan Tipe II).
-    *   **Cara Kerja:** Memberikan visualisasi langsung performa model dalam membedakan kedua kelas dan jenis kesalahan yang dibuat. Sangat berguna untuk analisis mendalam di luar skor metrik tunggal.
+    *   **Structure:** A 2x2 table that presents the number of correct and incorrect predictions in detail:
+        *   **True Positives (TP):** Diabetic patients predicted as diabetic.
+        *   **True Negatives (TN):** Non-diabetic patients predicted as non-diabetic.
+        *   **False Positives (FP):** Non-diabetic patients predicted as diabetic (Type I Error).
+        *   **False Negatives (FN):** Diabetic patients predicted as non-diabetic (Type II Error).
+    *   **How it Works:** Provides a direct visualization of the model's performance in distinguishing between the two classes and the types of errors made. Very useful for in-depth analysis beyond a single metric score.
 
 6.  **Classification Report:**
-    *   **Struktur:** Ringkasan teks yang menampilkan metrik Precision, Recall, dan F1-Score untuk setiap kelas, serta Akurasi keseluruhan dan rata-rata (macro avg, weighted avg).
-    *   **Cara Kerja:** Memberikan pandangan komprehensif tentang performa model per kelas dan secara keseluruhan.
+    *   **Structure:** A text summary that displays the Precision, Recall, and F1-Score for each class, as well as the overall Accuracy and averages (macro avg, weighted avg).
+    *   **How it Works:** Provides a comprehensive view of the model's performance per class and overall.
 
-### Hasil Evaluasi Model (Setelah Hyperparameter Tuning)
+### Model Evaluation Results (After Hyperparameter Tuning)
 
-Berikut adalah ringkasan performa dari ketiga model yang telah di-tuning, dievaluasi pada **data testing** (`X_test`, `y_test`):
+Here is a summary of the performance of the three tuned models, evaluated on the **testing data** (`X_test`, `y_test`):
 
 *   **Decision Tree:**
     *   **Best Parameters:** `{'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2}`
@@ -415,121 +398,121 @@ Berikut adalah ringkasan performa dari ketiga model yang telah di-tuning, dieval
         *   F1-Score: 0.99
     *   **Confusion Matrix:** `[[375, 2], [3, 173]]` (TN=375, FP=2, FN=3, TP=173)
 
-![Gambar 7. Perbandingan akurasi model pada data train](datatrain.png)
-**Gambar 7. Perbandingan akurasi model pada data train**
+![Figure 7. Comparison of model accuracy on the training data](datatrain.png)
+**Figure 7. Comparison of model accuracy on the training data**
 
-Interpretasi: Plot ini menunjukkan bahwa ketiga model (Decision Tree, LGBM, XGBoost) mencapai akurasi sempurna (100%) pada data training setelah tuning, mengindikasikan kemampuan mereka untuk mempelajari data latih secara maksimal.
+Interpretation: This plot shows that all three models (Decision Tree, LGBM, XGBoost) achieved perfect accuracy (100%) on the training data after tuning, indicating their ability to learn the training data to the maximum extent.
 
-![Gambar 8. Perbandingan akurasi model pada data test](datatest.png)
-**Gambar 8. Perbandingan akurasi model pada data test**
+![Figure 8. Comparison of model accuracy on the test data](datatest.png)
+**Figure 8. Comparison of model accuracy on the test data**
 
-Interpretasi: Visualisasi ini membandingkan akurasi pada data testing, menunjukkan performa yang sangat tinggi untuk ketiga model, dengan Decision Tree (99.82%) sedikit mengungguli LGBM (99.28%) dan XGBoost (99.10%). 
+Interpretation: This visualization compares the accuracy on the testing data, showing very high performance for all three models, with the Decision Tree (99.82%) slightly outperforming LGBM (99.28%) and XGBoost (99.10%).
 
-### Perbandingan Model dan Pemilihan Model Terbaik
+### Model Comparison and Best Model Selection
 
-Berdasarkan hasil evaluasi pada data testing:
+Based on the evaluation results on the testing data:
 
-1.  **Akurasi Keseluruhan:** Ketiga model menunjukkan akurasi yang sangat tinggi (di atas 99%). Decision Tree memiliki akurasi tertinggi (99.82%), diikuti oleh LGBM (99.28%) dan XGBoost (99.10%).
-2.  **Performa pada Kelas Diabetes (Class 1):**
-    *   **Recall:** Decision Tree mencapai Recall sempurna (1.00), artinya model ini berhasil mengidentifikasi *semua* pasien yang benar-benar menderita diabetes pada data testing (0 False Negatives). LGBM dan XGBoost memiliki Recall sedikit lebih rendah (0.98), yang berarti keduanya gagal mengidentifikasi 3 pasien diabetes (3 False Negatives).
-    *   **Precision:** Ketiga model memiliki Precision yang sama tinggi (0.99) untuk kelas diabetes.
-    *   **F1-Score:** Decision Tree memiliki F1-Score tertinggi (1.00) karena Recall yang sempurna.
-3.  **Jenis Kesalahan:**
-    *   Decision Tree hanya membuat 1 kesalahan False Positive (salah memprediksi non-diabetes sebagai diabetes) dan 0 False Negative.
-    *   LGBM membuat 1 False Positive dan 3 False Negative.
-    *   XGBoost membuat 2 False Positive dan 3 False Negative.
+1.  **Overall Accuracy:** All three models showed very high accuracy (above 99%). The Decision Tree had the highest accuracy (99.82%), followed by LGBM (99.28%) and XGBoost (99.10%).
+2.  **Performance on the Diabetes Class (Class 1):**
+    *   **Recall:** The Decision Tree achieved a perfect Recall of 1.00, meaning it successfully identified *all* patients who actually had diabetes in the testing data (0 False Negatives). LGBM and XGBoost had a slightly lower Recall of 0.98, which means they both failed to identify 3 diabetic patients (3 False Negatives).
+    *   **Precision:** All three models had an equally high Precision of 0.99 for the diabetes class.
+    *   **F1-Score:** The Decision Tree had the highest F1-Score (1.00) due to its perfect Recall.
+3.  **Types of Errors:**
+    *   The Decision Tree made only 1 False Positive error (wrongly predicting a non-diabetic as diabetic) and 0 False Negatives.
+    *   LGBM made 1 False Positive and 3 False Negatives.
+    *   XGBoost made 2 False Positives and 3 False Negatives.
 
-4.  **Analisis Overfitting (Generalization Gap):**
-    *   Selain performa pada data testing, penting untuk memeriksa seberapa baik model menggeneralisasi dari data training ke data testing. Ini dapat dilihat dari perbedaan antara skor rata-rata pada *cross-validation* di data training (`mean_train_score` dari CV results) dan skor pada data testing.
-    *   **Hasil Analisis:**
-        *   **Decision Tree:** Menunjukkan `mean_train_score` sempurna (1.00) tetapi `mean_test_score` pada *cross-validation* berkisar antara 0.93 hingga 0.97. Perbedaan (gap) antara skor training dan testing ini bisa mencapai 3% - 7%. Gap yang signifikan ini mengindikasikan **overfitting yang serius**. Model Decision Tree, meskipun mencapai Recall sempurna pada *satu* set data testing, kemungkinan besar terlalu 'menghafal' data training dan mungkin tidak akan berperforma sebaik itu pada data baru lainnya yang belum pernah dilihat. Parameter `max_depth=None` yang terpilih sebagai yang terbaik berkontribusi pada kecenderungan overfitting ini.
-        *   **LGBM & XGBoost:** Keduanya juga menunjukkan `mean_train_score` sempurna (1.00) setelah tuning, namun `mean_test_score` pada *cross-validation* secara konsisten berada di sekitar 0.98. Gap antara skor training dan testing hanya sekitar 2%. Ini menunjukkan **tingkat overfitting yang ringan hingga moderat**, yang lebih dapat diterima dan menunjukkan kemampuan generalisasi yang lebih baik dibandingkan Decision Tree.
+4.  **Overfitting Analysis (Generalization Gap):**
+    *   In addition to performance on the test data, it is important to check how well the model generalizes from the training data to the testing data. This can be seen from the difference between the average score during cross-validation on the training data (`mean_train_score` from CV results) and the score on the testing data.
+    *   **Analysis Results:**
+        *   **Decision Tree:** Showed a perfect `mean_train_score` (1.00), but the `mean_test_score` during cross-validation ranged from 0.93 to 0.97. This gap between the training and testing scores can be as high as 3% - 7%. This significant gap indicates **serious overfitting**. The Decision Tree model, although achieving perfect Recall on *one* specific test set, likely 'memorized' the training data and might not perform as well on other new, unseen data. The `max_depth=None` parameter chosen as the best contributed to this tendency to overfit.
+        *   **LGBM & XGBoost:** Both also showed a perfect `mean_train_score` (1.00) after tuning, but their `mean_test_score` during cross-validation was consistently around 0.98. The gap between training and testing scores was only about 2%. This indicates a **mild to moderate level of overfitting**, which is more acceptable and suggests better generalization ability compared to the Decision Tree.
 
-**Pemilihan Model Terbaik (dengan Pertimbangan Overfitting):**
+**Best Model Selection (Considering Overfitting):**
 
-Dalam konteks diagnosis medis seperti diabetes, **meminimalkan False Negatives (FN)** tetap menjadi prioritas utama. Gagal mendeteksi pasien diabetes bisa berdampak fatal.
+In a medical diagnosis context like diabetes, **minimizing False Negatives (FN)** remains the top priority. Failing to detect a diabetic patient can have fatal consequences.
 
-*   Decision Tree, meskipun menunjukkan **overfitting**, secara unik berhasil mencapai **Recall 1.00** (0 FN) pada *data testing spesifik* yang digunakan dalam evaluasi ini.
-*   LGBM dan XGBoost memiliki **kemampuan generalisasi yang lebih baik** (overfitting lebih rendah) namun mengorbankan sedikit Recall (Recall 0.98, menghasilkan 3 FN pada data testing ini).
+*   The Decision Tree, despite showing **overfitting**, uniquely achieved a **Recall of 1.00** (0 FN) on the *specific testing data* used in this evaluation.
+*   LGBM and XGBoost have **better generalization ability** (less overfitting) but sacrifice a little on Recall (Recall 0.98, resulting in 3 FN on this test data).
 
-Mempertimbangkan trade-off ini:
+Considering this trade-off:
 
-Jika prioritas absolut adalah **menghindari False Negative pada *setiap* kemungkinan** dan kita menerima risiko bahwa performa model mungkin sedikit menurun pada data baru lainnya (karena overfitting), maka **Decision Tree** bisa dipilih karena capaian Recall 1.00-nya pada set pengujian ini.
+If the absolute priority is to **avoid False Negatives at all costs** and we accept the risk that the model's performance might slightly decrease on other new data (due to overfitting), then the **Decision Tree** could be chosen for its achievement of 1.00 Recall on this test set.
 
-Namun, **keseimbangan antara Recall tinggi dan kemampuan generalisasi yang lebih baik** (performa yang lebih stabil pada data baru yang bervariasi) lebih diinginkan, maka **LGBM** atau **XGBoost** bisa menjadi pilihan yang lebih pragmatis. Keduanya masih memiliki Recall yang sangat tinggi (0.98) dan F1-Score yang identik (0.99), dengan tingkat overfitting yang jauh lebih rendah. 
+However, if a **balance between high Recall and better generalization ability** (more stable performance on new, varied data) is more desirable, then **LGBM** or **XGBoost** could be a more pragmatic choice. Both still have very high Recall (0.98) and an identical F1-Score (0.99), with a much lower level of overfitting.
 
-**Keputusan Akhir:** Mengingat pentingnya Recall dalam diagnosis medis dan performa superior Decision Tree dalam hal ini (0 FN) pada data testing yang ada, **Decision Tree Classifier dengan hyperparameter hasil tuning (`criterion='entropy', max_depth=None, min_samples_leaf=1, min_samples_split=2`) dipilih sebagai model terbaik**, dengan catatan bahwa potensi overfittingnya perlu dipantau jika model ini diterapkan pada data baru yang sangat berbeda. **
+**Final Decision:** Given the importance of Recall in medical diagnosis and the superior performance of the Decision Tree in this regard (0 FN) on the existing test data, the **Decision Tree Classifier with the tuned hyperparameters (`criterion='entropy', max_depth=None, min_samples_leaf=1, min_samples_split=2`) is selected as the best model**, with the note that its potential for overfitting needs to be monitored if this model is applied to new, very different data.
 
-### Visualisasi Evaluasi
+### Evaluation Visualization
 
-Visualisasi seperti *heatmap* dari Classification Report dan Confusion Matrix digunakan untuk mempermudah interpretasi perbandingan performa antar model dan memahami jenis-jenis kesalahan yang dibuat oleh masing-masing model secara lebih intuitif.
+Visualizations like heatmaps of the Classification Report and Confusion Matrix are used to facilitate the interpretation of performance comparisons between models and to more intuitively understand the types of errors made by each model.
 
 ![Classification Report - Decision Tree](classificationreportdecisiontree.png)
 <br>
-**Gambar 9. Classification Report - Decision Tree**
+**Figure 9. Classification Report - Decision Tree**
 
-Interpretasi: Heatmap ini merangkum performa Decision Tree. Secara keseluruhan, model ini menunjukkan performa sangat tinggi dengan nilai precision, recall, dan f1-score mendekati 1.00 untuk kedua kelas, terutama recall 1.00 untuk kelas positif (1).
+Interpretation: This heatmap summarizes the performance of the Decision Tree. Overall, the model shows very high performance with precision, recall, and f1-score values close to 1.00 for both classes, especially a recall of 1.00 for the positive class (1).
 
 ![Classification Report - LGBM](classificationreportLGBM.png)
 <br>
-**Gambar 10. Classification Report - LGBM**
+**Figure 10. Classification Report - LGBM**
 
-Interpretasi: LGBM juga menunjukkan performa yang kuat dengan skor tinggi di semua metrik. Namun, terdapat sedikit penurunan pada recall (0.98) untuk kelas positif (1) dibandingkan Decision Tree, meskipun precision dan f1-score tetap tinggi (0.99).
+Interpretation: LGBM also shows strong performance with high scores across all metrics. However, there is a slight decrease in recall (0.98) for the positive class (1) compared to the Decision Tree, although precision and f1-score remain high (0.99).
 
 ![Classification Report - XGBoost](classificationreportXGBoost.png)
 <br>
-**Gambar 11. Classification Report - XGBoost**
+**Figure 11. Classification Report - XGBoost**
 
-Interpretasi: Seperti LGBM, XGBoost memiliki performa keseluruhan yang sangat baik dengan skor rata-rata 0.99. Recall untuk kelas positif (1) juga 0.98, menunjukkan performa yang sangat mirip dengan LGBM pada data testing ini.
+Interpretation: Like LGBM, XGBoost has a very good overall performance with an average score of 0.99. The recall for the positive class (1) is also 0.98, showing a very similar performance to LGBM on this test data.
 
 ![Confusion Matrix - Decision Tree](CMDecisiontree.png)
 <br>
-**Gambar 12. Confusion Matrix - Decision Tree**
+**Figure 12. Confusion Matrix - Decision Tree**
 
-Interpretasi: Confusion matrix Decision Tree menunjukkan hasil klasifikasi yang hampir sempurna pada data testing. Hanya terdapat 1 kasus False Positive (non-diabetes diprediksi diabetes), dan yang terpenting, tidak ada kasus False Negative (0 kasus diabetes yang terlewatkan).
+Interpretation: The Decision Tree's confusion matrix shows nearly perfect classification results on the test data. There is only 1 False Positive case (a non-diabetic predicted as diabetic), and most importantly, there are no False Negative cases (0 missed diabetes cases).
 
 ![Confusion Matrix - LGBM](CMLGBM.png)
 <br>
-**Gambar 13. Confusion Matrix - LGBM**
+**Figure 13. Confusion Matrix - LGBM**
 
-Interpretasi: LGBM membuat sedikit lebih banyak kesalahan, dengan 1 False Positive dan 3 False Negative. Artinya, model ini gagal mengidentifikasi 3 kasus diabetes yang sebenarnya positif pada data testing ini.
+Interpretation: LGBM made slightly more errors, with 1 False Positive and 3 False Negatives. This means the model failed to identify 3 actual positive diabetes cases in this test data.
 
 ![Confusion Matrix - XGBoost](CMXGBoost.png)
 <br>
-**Gambar 14. Confusion Matrix - XGBoost**
+**Figure 14. Confusion Matrix - XGBoost**
 
-Interpretasi: XGBoost memiliki pola kesalahan yang mirip dengan LGBM, menghasilkan 2 False Positive dan 3 False Negative. Ini juga berarti 3 kasus diabetes aktual tidak teridentifikasi oleh model pada set pengujian ini.
+Interpretation: XGBoost has a similar error pattern to LGBM, resulting in 2 False Positives and 3 False Negatives. This also means 3 actual diabetes cases were not identified by the model on this test set.
 
-## Kesimpulan
+## Conclusion
 
-Proyek ini berhasil mengembangkan dan mengevaluasi beberapa model machine learning untuk klasifikasi teridentifikasi diabetes berdasarkan data fitur medis pasien. Setelah melalui tahap *hyperparameter tuning* dan evaluasi yang cermat, **Decision Tree Classifier terpilih sebagai model dengan performa terbaik** untuk kasus penggunaan ini.
+This project successfully developed and evaluated several machine learning models for classifying diabetes based on patient medical feature data. After a careful process of hyperparameter tuning and evaluation, the **Decision Tree Classifier was selected as the best-performing model** for this use case.
 
-Model Decision Tree yang telah dioptimalkan (`criterion='entropy', max_depth=None, min_samples_leaf=1, min_samples_split=2`) menunjukkan hasil yang sangat menjanjikan pada data testing:
+The optimized Decision Tree model (`criterion='entropy', max_depth=None, min_samples_leaf=1, min_samples_split=2`) showed very promising results on the testing data:
 
-*   Mencapai **akurasi keseluruhan yang sangat tinggi sebesar 99.82%**.
-*   Yang paling signifikan, model ini berhasil mencapai **Recall sempurna (1.00)** untuk kelas positif (diabetes). Ini berarti model berhasil mengidentifikasi **semua** pasien yang sebenarnya menderita diabetes dalam set data pengujian (tidak ada *False Negatives*), yang merupakan aspek krusial dalam konteks diagnosis medis.
-*   Model ini juga mempertahankan **Precision yang tinggi (0.99)** untuk kelas diabetes, menunjukkan bahwa sebagian besar pasien yang diprediksi diabetes memang benar menderita diabetes.
+*   It achieved a **very high overall accuracy of 99.82%**.
+*   Most significantly, the model achieved a **perfect Recall of 1.00** for the positive class (diabetes). This means the model successfully identified **all** patients who actually had diabetes in the test dataset (zero *False Negatives*), which is a crucial aspect in a medical diagnosis context.
+*   The model also maintained a **high Precision of 0.99** for the diabetes class, indicating that the vast majority of patients predicted to have diabetes actually had it.
 
-Namun, penting untuk dicatat bahwa analisis pada tahap evaluasi juga mengidentifikasi adanya indikasi **overfitting** pada model Decision Tree. Hal ini terlihat dari adanya celah (gap) performa yang cukup besar antara hasil pada data training dan data testing (`mean_train_score` mencapai 1.00 sementara `mean_test_score` bervariasi dan lebih rendah). Overfitting ini menunjukkan risiko bahwa model mungkin terlalu 'menghafal' data training spesifik dan performanya bisa jadi tidak sebaik ini pada data baru yang sepenuhnya berbeda di dunia nyata. Model lain seperti LGBM dan XGBoost menunjukkan tingkat overfitting yang lebih rendah (generalisasi lebih baik) meskipun dengan sedikit pengorbanan pada metrik Recall (Recall 0.98).
+However, it is important to note that the analysis during the evaluation stage also identified indications of **overfitting** in the Decision Tree model. This was evident from the considerable performance gap between the results on the training data and the testing data (`mean_train_score` reached 1.00 while `mean_test_score` varied and was lower). This overfitting suggests a risk that the model may have 'memorized' the specific training data and its performance might not be as good on new, completely different real-world data. Other models like LGBM and XGBoost showed a lower degree of overfitting (better generalization) albeit with a slight sacrifice in the Recall metric (Recall 0.98).
 
-**Manfaat Potensial Model:**
+**Potential Benefits of the Model:**
 
-*   **Bagi Pasien dan Sistem Kesehatan:** Kemampuan model (khususnya Decision Tree dalam pengujian ini) untuk meminimalkan *False Negatives* sangat berharga. Ini berpotensi membantu dalam skrining awal atau identifikasi pasien berisiko tinggi, memungkinkan intervensi medis yang lebih cepat dan tepat waktu, serta mengurangi risiko komplikasi akibat diabetes yang tidak terdiagnosis.
-*   **Bagi Peneliti:** Proyek ini menunjukkan efektivitas pendekatan machine learning, khususnya model berbasis pohon keputusan dan ensemble, dalam menganalisis data medis untuk prediksi diabetes. Ini dapat menjadi dasar untuk penelitian lebih lanjut.
+*   **For Patients and the Healthcare System:** The model's ability (especially the Decision Tree in this test) to minimize *False Negatives* is extremely valuable. It could potentially assist in early screening or identification of high-risk patients, enabling faster and more timely medical interventions, and reducing the risk of complications from undiagnosed diabetes.
+*   **For Researchers:** This project demonstrates the effectiveness of machine learning approaches, particularly tree-based and ensemble models, in analyzing medical data for diabetes prediction. This can serve as a foundation for further research.
 
-**Langkah Tindak Lanjut yang Direkomendasikan:**
+**Recommended Next Steps:**
 
-1.  **Mitigasi Overfitting:** Fokus utama adalah mengatasi overfitting pada model Decision Tree. Ini dapat dicoba dengan:
-    *   Menerapkan teknik *pruning* yang lebih agresif (misalnya, menetapkan `max_depth` yang lebih kecil, meningkatkan `min_samples_split` atau `min_samples_leaf` selama tuning).
-    *   Mengevaluasi ulang trade-off antara Recall sempurna dan generalisasi, mungkin dengan memilih LGBM atau XGBoost jika performa yang lebih stabil pada data baru lebih diprioritaskan.
-2.  **Validasi Eksternal:** Menguji performa model terpilih pada dataset independen yang berbeda (jika tersedia) untuk mendapatkan gambaran yang lebih realistis tentang kemampuan generalisasinya.
-3.  **Eksplorasi Fitur:** Melakukan analisis *feature importance* yang lebih mendalam untuk memahami fitur mana yang paling berpengaruh dan mungkin melakukan rekayasa fitur (feature engineering) untuk meningkatkan performa atau interpretasi model.
-4.  **Kombinasi Model (Ensembling):** Menjelajahi teknik *ensemble* yang lebih canggih yang mungkin dapat menggabungkan kekuatan beberapa model untuk hasil yang lebih robust.
-5.  **Pertimbangan Klinis:** (Jangka panjang) Berkolaborasi dengan profesional medis untuk memvalidasi relevansi klinis model dan potensi integrasinya dalam alur kerja diagnostik.
+1.  **Mitigating Overfitting:** The main focus should be on addressing the overfitting in the Decision Tree model. This can be attempted by:
+    *   Applying more aggressive *pruning* techniques (e.g., setting a smaller `max_depth`, increasing `min_samples_split` or `min_samples_leaf` during tuning).
+    *   Re-evaluating the trade-off between perfect Recall and generalization, possibly by selecting LGBM or XGBoost if more stable performance on new data is prioritized.
+2.  **External Validation:** Testing the performance of the selected model on a different, independent dataset (if available) to get a more realistic picture of its generalization capabilities.
+3.  **Feature Exploration:** Conducting a more in-depth *feature importance* analysis to understand which features are most influential and possibly performing feature engineering to improve model performance or interpretability.
+4.  **Model Combination (Ensembling):** Exploring more advanced *ensemble* techniques that might combine the strengths of several models for a more robust result.
+5.  **Clinical Consideration:** (Long-term) Collaborating with medical professionals to validate the clinical relevance of the model and its potential integration into diagnostic workflows.
 
-Secara keseluruhan, proyek ini menunjukkan potensi besar penggunaan machine learning untuk prediksi diabetes. Model Decision Tree memberikan hasil Recall yang sempurna pada data test, namun tantangan overfitting perlu diatasi untuk memastikan keandalan model dalam aplikasi praktis.
+Overall, this project shows the great potential of using machine learning for diabetes prediction. The Decision Tree model provided perfect Recall on the test data, but the challenge of overfitting needs to be addressed to ensure the model's reliability in practical applications.
 
-## Referensi
+## References
 
 *   Mayo Clinic Staff, "Type 1 diabetes - Symptoms and causes," *Mayo Clinic Website* \[online], 2021. [Available at: https://www.mayoclinic.org/diseases-conditions/type-1-diabetes/symptoms-causes/syc-20353011](https://www.mayoclinic.org/diseases-conditions/type-1-diabetes/symptoms-causes/syc-20353011)
 *   Atkinson MA, Eisenbarth GS, and Michels AW, "Type 1 diabetes," *The Lancet*, vol. 383, no. 9911, pp. 69–82 \[online], 2014. [Available at: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4380133/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4380133/)
